@@ -1,5 +1,7 @@
 ﻿using IMS.DataAccess;
 using IMS.DataAccess.Database;
+using IMS.Model;
+using IMS.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,15 @@ namespace Confi_IMS.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly ProductService productService;
+        public ProductController()
+        {
+            productService = new ProductService();
+        }
         public ActionResult DisplayProduct()
         {
-           List<Product> list = db.Products.OrderByDescending(x => x.id).ToList();
-            return View();
+            List<Product> product = productService.GetAllProducts();
+            return View(product);
         }
 
 
@@ -28,51 +35,51 @@ namespace Confi_IMS.Controllers
         [HttpPost]
         public ActionResult CreateProduct(Product pro)
         {
-            db.Product.Add(pro);
-            db.SaveChanges();
-            return RedirectToAction("DisplayProduct");
+            productService.CreateProduct(pro);
+            return RedirectToAction("DisplayProduct"); 
         }
 
         [HttpGet]
         public ActionResult UpdateProduct(int id)
         {
-            Product pr = db.Products.Where(x => x.id == id).SingleOrDefault();
-            return View(pr);
+            Product product = productService.GetProductById(id);
+            return View(product);
         }
 
+        
         [HttpPost]
-        public ActionResult UpdateProduct(int id, Product pro)
-        {
-            Product pr = db.Products.Where(x => x.id == id).SingleOrDefault();
-            pr.Product_Name = pro.Product_Name;
-            pr.Product_Quntity = pro.Product_Quntity;
-            db.SaveChanges();
-            return RedirectToAction("DisplayProduct");
+        public ActionResult UpdateProduct(ProductModel pro)
+            {
+            ProductModel objProductModel = productService.UpdateProduct(pro);
+                return RedirectToAction("DisplayProduct");
 
-        }
-        [HttpGet]
+            }
+       
+            [HttpGet]
 
-        public ActionResult ProductDetail(int id)
-        {
-            Product pro = db.Products.Where(x => x.id == id).SingleOrDefault();
+            public ActionResult ProductDetail(int id)
+            {
+            Product product =  productService.GetProductById(id);
+              return View(product);
+            }
+
+       
+            public ActionResult DeleteProduct(int id)
+            {
+            Confi_IMSEntities _db = new Confi_IMSEntities();
+            Product pro = _db.Products.Where(x => x.id == id).SingleOrDefault();
             return View(pro);
         }
 
-
-        public ActionResult DeleteProduct(int id)
-        {
-            Product pro = db.Products.Where(x => x.id == id).SingleOrDefault();
-            return View(pro);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteProduct(int id, Product pro)
-        {
-            Product p = db.Products.Where(x => x.id == id).SingleOrDefault();
-            db.Products.Remove(p);
-            db.SaveChanges();
-            return RedirectToAction("DisplayProduct");
-        }
+            [HttpPost]
+            public ActionResult DeleteProduct(int id, Product pro)
+            {
+            Confi_IMSEntities _db = new Confi_IMSEntities();
+            Product p = _db.Products.Where(x => x.id == id).SingleOrDefault();
+                _db.Products.Remove(p);
+                _db.SaveChanges();
+                return RedirectToAction("DisplayProduct");
+            }
 
 
 

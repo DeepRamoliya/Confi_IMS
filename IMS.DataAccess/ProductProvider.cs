@@ -1,4 +1,5 @@
 ﻿using IMS.DataAccess.Database;
+using IMS.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMS.DataAccess
 {
-    class ProductProvider : BaseProvider
+     public class ProductProvider : BaseProvider
     {
         public ProductProvider()
         {
@@ -24,6 +25,44 @@ namespace IMS.DataAccess
             var product = _db.Products.ToList();
             return product;
         }
-        
+
+        public Product GetProductById(int id)
+        {
+            return _db.Products.Find(id);
+        }
+
+
+        public Product CreateProduct(Product objProduct)
+        {
+            Product _Product = new Product()
+            {
+                id = objProduct.id,
+                Product_Name = objProduct.Product_Name,
+                Product_Quntity = objProduct.Product_Quntity
+            };
+
+            _db.Products.Add(_Product);
+            _db.SaveChanges();
+
+            return objProduct;
+        }
+
+        public ProductModel UpdateProduct(ProductModel pro)
+        {
+            var objpro = GetProductById(pro.id);
+            objpro.Product_Name = pro.Product_Name;
+            objpro.Product_Quntity = pro.Product_Quntity;
+            _db.SaveChanges();
+            return pro;
+            
+        }
+
+       /* public ProductModel DeleteProductById(int id)
+        {
+            var p = _db.Products.Where(x => x.id == id).SingleOrDefault();
+            _db.Products.Remove(p);
+            _db.SaveChanges();
+            return RedirectToAction("DisplayProduct");
+        }*/
     }
 }

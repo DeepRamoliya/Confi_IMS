@@ -90,6 +90,10 @@
       <Project>{D9CD45A2-302B-4EE5-B7C4-64C4A3768608}</Project>
       <Name>IMS.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IMS.Model\IMS.Model.csproj">
+      <Project>{2C8E9C2B-0B57-41F4-BEEB-D3475EEBC28C}</Project>
+      <Name>IMS.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

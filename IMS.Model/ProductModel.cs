@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMS.Model
 {
-    class ProductModel
+    public class ProductModel
     {
         public int id { get; set; }
         public string Product_Name { get; set; }
