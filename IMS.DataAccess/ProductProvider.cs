@@ -8,5 +8,5 @@ namespace IMS.DataAccess
 {
     class ProductProvider
     {
-    }           
+    }
 }

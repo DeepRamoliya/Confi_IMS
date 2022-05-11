@@ -61,6 +61,7 @@
     <Compile Include="Database\Confi_IMSEntities.cs" />
     <Compile Include="Database\Product.cs" />
     <Compile Include="Database\Users.cs" />
+    <Compile Include="ProductProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserProvider.cs" />
   </ItemGroup>
