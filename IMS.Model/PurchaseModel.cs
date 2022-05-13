@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 
 namespace IMS.Model
 {
-    public class ProductModel
+    public class PurchaseModel
     {
         public int id { get; set; }
-        [Display(Name = "Product Name")]
-        public string Product_Name { get; set; }
+        [Display(Name = "Purchase Product")]
+        public string Purchase_Product { get; set; }
+
         [Display(Name = "Product Quntity")]
-        public string Product_Quntity { get; set; }
+        public string Purchase_Quntity { get; set; }
+
+        [Display(Name = "Date")]
+        public System.DateTime Purchase_date { get; set; }
     }
 }

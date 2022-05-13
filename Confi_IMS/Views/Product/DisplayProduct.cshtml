@@ -2,12 +2,13 @@
 
 @{
     ViewBag.Title = "DisplayProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>DisplayProduct</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateProduct")
+    @Html.ActionLink("Create New", "CreateProduct", null, new { @class = " btn btn-outline-primary" })
 </p>
 <table class="table">
     <tr>
@@ -29,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.Product_Quntity)
         </td>
         <td>
-            @Html.ActionLink("Edit", "UpdateProduct", new { id=item.id }) |
-            @Html.ActionLink("Details", "ProductDetail", new { id=item.id }) |
-            @Html.ActionLink("Delete", "DeleteProduct", new { id=item.id })
+            @Html.ActionLink("Edit", "UpdateProduct", new { id=item.id },new { @class = "btn btn-outline-info" } ) 
+            @*@Html.ActionLink("Details", "ProductDetail", new { id=item.id }, new { @class = "btn btn-primary" })*@ 
+            @Html.ActionLink("Delete", "DeleteProduct", new { id=item.id }, new { @class = "btn btn-outline-danger" })
         </td>
     </tr>
 }

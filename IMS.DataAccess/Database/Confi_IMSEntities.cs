@@ -22,6 +22,8 @@ namespace IMS.DataAccess
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Purchase> Purchase { get; set; }
+        public DbSet<Sale> Sale { get; set; }
         public DbSet<User> User { get; set; }
     }
 }
