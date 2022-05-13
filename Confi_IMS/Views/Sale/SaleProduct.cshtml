@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Sale_Product, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Sale_Product, new SelectList(ViewBag.Sale_Product == null ? new SelectListItem() : ViewBag.Sale_Product, "ID", "Text"), "--Select Product--", new { @class = "form-select" })
+                @Html.DropDownListFor(model => model.Sale_Product, new SelectList(ViewBag.Sale_Product == null ? new SelectListItem() : ViewBag.Sale_Product, "Text"), "--Select Product--", new { @class = "form-select" })
                 @Html.ValidationMessageFor(model => model.Sale_Product, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -54,3 +54,4 @@
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }*@
+<input type="hidden" id="hdnMenuCode" value="Sale" />

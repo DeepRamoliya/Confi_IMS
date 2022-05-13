@@ -27,7 +27,8 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult SaleProduct()
         {
-            ViewBag.Sale_Product = saleService.BindSaleProduct();
+            Confi_IMSEntities _db = new Confi_IMSEntities();
+            ViewBag.Sale_Product = _db.Products.Select(x => x.Product_Name).ToList();
             return View();
         }
         public ActionResult SaleProduct(Sale pur)

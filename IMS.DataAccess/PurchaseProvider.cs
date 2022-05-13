@@ -45,12 +45,12 @@ namespace IMS.DataAccess
 
         
 
-        public List<System.Web.UI.WebControls.DropDownList> BindPurchaseProduct()
+       /* public List<System.Web.UI.WebControls.DropDownList> BindPurchaseProduct()
         {
            
             return _db.Products.Select(x => new System.Web.UI.WebControls.DropDownList { Text = x.Product_Name.ToString(), ID = x.id.ToString() }).ToList();
         }
-
+*/
         public PurchaseModel UpdatePurchase(PurchaseModel pur)
         {
             var objpur = GetPurchaseById(pur.id);

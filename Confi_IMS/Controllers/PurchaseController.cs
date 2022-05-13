@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Confi_IMS.Controllers
 {
+    
     public class PurchaseController : Controller
     {
         
@@ -28,7 +29,8 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult PurchaseProduct()
         {
-            ViewBag.Purchase_Product = purchaseService.BindPurchaseProduct();
+            Confi_IMSEntities _db = new Confi_IMSEntities();
+            ViewBag.Purchase_Product = _db.Products.Select(x => x.Product_Name).ToList(); 
             return View();
         }
         public ActionResult PurchaseProduct(Purchase pur)

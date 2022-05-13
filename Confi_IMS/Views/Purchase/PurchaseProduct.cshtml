@@ -21,7 +21,7 @@
             @Html.LabelFor(model => model.Purchase_Product, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.DropDownListFor(model => model.Purchase_Product, ViewBag.Purchase_Product as SelectList, "Select", new { @class = "form-select form-control" })*@
-                @Html.DropDownListFor(model => model.Purchase_Product, new SelectList(ViewBag.Purchase_Product == null ? new SelectListItem() : ViewBag.Purchase_Product, "ID", "Text" ), "--Select Product--", new { @class = "form-select"})
+                @Html.DropDownListFor(model => model.Purchase_Product, new SelectList(ViewBag.Purchase_Product == null ? new SelectListItem() : ViewBag.Purchase_Product, "Text" ), "--Select Product--", new { @class = "form-select"})
                 @Html.ValidationMessageFor(model => model.Purchase_Product, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -54,3 +54,4 @@
     @Html.ActionLink("Back to List", "DisplayPurchase")
 </div>
 
+<input type="hidden" id="hdnMenuCode" value="Purchase" />

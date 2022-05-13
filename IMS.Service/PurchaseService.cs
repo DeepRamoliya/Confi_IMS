@@ -28,10 +28,10 @@ namespace IMS.Service
             return purchaseProvider.PurchaseProduct(objProduct);
         }
 
-        public List<System.Web.UI.WebControls.DropDownList> BindPurchaseProduct()
+       /* public List<System.Web.UI.WebControls.DropDownList> BindPurchaseProduct()
         {
             return purchaseProvider.BindPurchaseProduct();
-        }
+        }*/
 
         
 

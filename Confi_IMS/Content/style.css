@@ -50,10 +50,11 @@ html body {
     display: block;
 }
 
-.logo a img {
-    display: block;
-    width: 80px;
-}
+    .logo a img {
+        display: block;
+        width: 125px !important;
+        height: 41px !important;
+    }
 .header .dropdown .dropdown-img {
   background: #fff;
   width: 32px;

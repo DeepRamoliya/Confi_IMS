@@ -40,7 +40,8 @@ namespace Confi_IMS.Controllers
                             ViewBag.Message = "Please verify your email first";
                             return View();
                         }
-                        if (string.Compare(Crypto.Hash(login.Password), v.Password) == 0)
+                        var p = dc.User.Where(a => a.Password == login.Password).FirstOrDefault();
+                        if (p != null)
                         {
                             int timeout = login.RememberMe ? 525600 : 60; // 525600 min = 1 year
                             var ticket = new FormsAuthenticationTicket(login.EmailId, login.RememberMe, timeout);
@@ -52,7 +53,7 @@ namespace Confi_IMS.Controllers
 
                             if (returnUrl == null)
                             {
-                                return RedirectToAction("Dashboard", "Home");
+                                return RedirectToAction("Index", "Home");
                             }
                             else
                             {
@@ -77,14 +78,14 @@ namespace Confi_IMS.Controllers
                 return View(login);
             }
         }
-
-        [HttpPost]
+       
         public ActionResult LogOff()
         {
             //  WebSecurity.Logout();
             Session.Abandon();
+            FormsAuthentication.SignOut();
             TempData["Message"] = "You Successfully Logout!!";
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "Home");
         }
 
         [NonAction]

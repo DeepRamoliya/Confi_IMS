@@ -27,10 +27,10 @@ namespace IMS.Service
             return saleProvider.SaleProduct(objProduct);
         }
 
-        public List<System.Web.UI.WebControls.DropDownList> BindSaleProduct()
+       /* public List<System.Web.UI.WebControls.DropDownList> BindSaleProduct()
         {
             return saleProvider.BindSaleProduct();
-        }
+        }*/
 
 
 
