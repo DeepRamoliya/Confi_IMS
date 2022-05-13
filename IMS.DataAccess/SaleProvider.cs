@@ -45,7 +45,6 @@ namespace IMS.DataAccess
 
         public List<System.Web.UI.WebControls.DropDownList> BindSaleProduct()
         {
-
             return _db.Products.Select(x => new System.Web.UI.WebControls.DropDownList { Text = x.Product_Name.ToString(), ID = x.id.ToString() }).ToList();
         }
 

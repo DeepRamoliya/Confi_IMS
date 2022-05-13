@@ -64,14 +64,18 @@
   <ItemGroup>
     <Compile Include="BaseProvider.cs" />
     <Compile Include="Database\Confi_IMSEntities.cs" />
+    <Compile Include="Database\FormMst.cs" />
     <Compile Include="Database\Product.cs" />
     <Compile Include="Database\Purchase.cs" />
     <Compile Include="Database\Sale.cs" />
     <Compile Include="Database\Users.cs" />
+    <Compile Include="Database\webpages_Roles.cs" />
+    <Compile Include="FormProvider.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="ProductProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseProvider.cs" />
+    <Compile Include="RoleProvider.cs" />
     <Compile Include="SaleProvider.cs" />
     <Compile Include="UserProvider.cs" />
   </ItemGroup>
