@@ -1,0 +1,42 @@
+﻿@model IMS.DataAccess.Database.Sale
+
+@{
+    ViewBag.Title = "SaleDetail";
+}
+
+<h2>Sale List</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sale_Product)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale_Product)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sale_Quntity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale_Quntity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sale_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "DisplaySale", "", new { @class = "btn btn-outline-primary" })
+</p>
+<input type="hidden" id="hdnMenuCode" value="Sale" />

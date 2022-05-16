@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IMS.DataAccess.Database.Sale>
+
+@{
+    ViewBag.Title = "DisplaySale";
+}
+
+<h2>Display Sale</h2>
+
+<p>
+    @Html.ActionLink("Create New", "SaleProduct", null, new { @class = "btn btn-outline-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_Product)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_Quntity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sale_Product)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sale_Quntity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sale_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdateSale", new { id = item.id }, new { @class = "btn btn-outline-info" })
+          
+            @Html.ActionLink("Delete", "DeleteSale", new { id = item.id }, new { @class = "btn btn-outline-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<input type="hidden" id="hdnMenuCode" value="Sale" />

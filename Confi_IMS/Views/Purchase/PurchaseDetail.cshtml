@@ -1,0 +1,42 @@
+﻿@model IMS.DataAccess.Database.Purchase
+
+@{
+    ViewBag.Title = "PurchaseDetail";
+}
+
+<h2>Purchase Detail</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchase_Product)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchase_Product)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchase_Quntity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchase_Quntity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchase_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchase_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "DisplayPurchase", "", new { @class = "btn btn-outline-primary" })
+</p>
+<input type="hidden" id="hdnMenuCode" value="Purchase" />

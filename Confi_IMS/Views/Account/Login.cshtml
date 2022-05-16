@@ -1,5 +1,4 @@
-﻿
-@model IMS.Model.AccountModel
+﻿@model IMS.Model.AccountModel.LoginModel
 
 @{
     ViewBag.Title = "Login";
@@ -26,10 +25,13 @@
     {
         @Html.AntiForgeryToken()
 
-        <section class="login-section">
+        <section class="login-section " style="background-color: #51bdae; ">
             <div class="login-from">
                 <div class="login-logo mb-4 text-center">
-                    <a href=""><img src="~/Content/images/IMS.png" width="125"></a>
+                    <a href="">
+                        <img src="~/Content/images/IMS.png" width="125px" />
+                    </a>
+
                 </div>
                 <h1 class="h4 mb-3">Sign In</h1>
                 <form method="post">
@@ -63,8 +65,25 @@
     }
 
     <script src="Content/bootstrap.bundle.min.js"></script>
+    <input type="hidden" id="hdnMenuCode" value="Login" />
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

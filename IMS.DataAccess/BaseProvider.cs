@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMS.DataAccess
 {
-    class BaseProvider: IDisposable
+    public class BaseProvider: IDisposable
     {
         public Confi_IMSEntities _db;
         public BaseProvider()

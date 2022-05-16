@@ -21,7 +21,14 @@ namespace IMS.DataAccess
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
-        public DbSet<Product> Products { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Purchase> Purchase { get; set; }
+        public DbSet<Sale> Sale { get; set; }
+        public DbSet<FormMst> FormMst { get; set; }
+        public DbSet<webpages_Roles> webpages_Roles { get; set; }
+        public System.Data.Entity.DbSet<IMS.Model.ProductModel> ProductModels { get; set; }
+        public DbSet<FormRoleMapping> FormRoleMapping { get; set; }
+        public DbSet<webpages_UsersInRoles> webpages_UsersInRoles { get; set; }
     }
 }

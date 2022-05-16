@@ -1,0 +1,36 @@
+﻿@model IMS.DataAccess.Database.Product
+
+@{
+    ViewBag.Title = "ProductDetail";
+}
+
+<h2>Product Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Quntity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Quntity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Cancel", "DisplayProduct", null, new { @class = "btn btn-outline-danger" })
+
+</p>
+<input type="hidden" id="hdnMenuCode" value="Product" />
