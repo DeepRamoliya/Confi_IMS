@@ -78,7 +78,7 @@
     <Compile Include="ProductProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseProvider.cs" />
-    <Compile Include="RoleProvider.cs" />
+    <Compile Include="RolesProvider.cs" />
     <Compile Include="SaleProvider.cs" />
     <Compile Include="UserProvider.cs" />
   </ItemGroup>

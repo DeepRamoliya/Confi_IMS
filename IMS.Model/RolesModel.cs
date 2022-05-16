@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMS.Model
 {
-    public class RoleModel
+    public class RolesModel
     {
         public int Id { get; set; }
         [Required]

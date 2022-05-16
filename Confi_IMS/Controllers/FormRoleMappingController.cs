@@ -12,10 +12,10 @@ namespace Confi_IMS.Controllers
     {
 
         private readonly FormRoleMappingService _formRoleMapping;
-        private readonly RoleService _roleService;
+        private readonly RolesService _roleService;
         public FormRoleMappingController()
         {
-            _roleService = new RoleService();
+            _roleService = new RolesService();
             _formRoleMapping = new FormRoleMappingService();
         }
         public ActionResult Index()

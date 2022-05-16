@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace IMS.DataAccess
 {
-    public class RoleProvider:BaseProvider
+    public class RolesProvider:BaseProvider
     {
-        public RoleProvider()
+        public RolesProvider()
         {
 
         }
@@ -21,10 +21,10 @@ namespace IMS.DataAccess
                           select user.Id).FirstOrDefault();
             return _db.webpages_Roles.Find(userId);
         }
-        public List<RoleModel> GetAllRoles()
+        public List<RolesModel> GetAllRoles()
         {
             var data = (from a in _db.webpages_Roles
-                        select new RoleModel
+                        select new RolesModel
                         {
                             Id = a.RoleId,
                             Name = a.RoleName,

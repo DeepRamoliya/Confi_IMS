@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace IMS.Service
 {
-    public class  RoleService
+    public class  RolesService
     {
-        public readonly RoleProvider _roleProvider;
-        public RoleService()
+        public readonly RolesProvider _roleProvider;
+        public RolesService()
         {
-            _roleProvider = new RoleProvider();
+            _roleProvider = new RolesProvider();
         }
 
-        public List<RoleModel> GetAllRoles()
+        public List<RolesModel> GetAllRoles()
         {
             var roles = _roleProvider.GetAllRoles();
             return roles;
         }
 
-        public RoleModel GetRolesById()
+        public RolesModel GetRolesById()
         {
             var data = _roleProvider.GetRolesById();
-            RoleModel role = new RoleModel()
+            RolesModel role = new RolesModel()
             {
                 Id = data.RoleId,
                 Name = data.RoleName,
