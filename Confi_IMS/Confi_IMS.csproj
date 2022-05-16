@@ -375,6 +375,7 @@
     <Content Include="Views\Sale\DeleteProduct.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -388,7 +389,6 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\FormRoleMapping\" />
     <Folder Include="Views\Form\" />
-    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IMS.DataAccess\IMS.DataAccess.csproj">

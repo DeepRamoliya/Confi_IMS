@@ -65,12 +65,15 @@
     <Compile Include="BaseProvider.cs" />
     <Compile Include="Database\Confi_IMSEntities.cs" />
     <Compile Include="Database\FormMst.cs" />
+    <Compile Include="Database\FormRoleMapping.cs" />
     <Compile Include="Database\Product.cs" />
     <Compile Include="Database\Purchase.cs" />
     <Compile Include="Database\Sale.cs" />
     <Compile Include="Database\Users.cs" />
     <Compile Include="Database\webpages_Roles.cs" />
+    <Compile Include="Database\webpages_UsersInRoles.cs" />
     <Compile Include="FormProvider.cs" />
+    <Compile Include="FormRoleMappingProvider.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="ProductProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
