@@ -17,10 +17,10 @@ namespace Confi_IMS.Controllers
         }
         public ActionResult Index(int? page)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.ROLE.ToString(), AccessPermission.IsView))
+            /*if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.ROLE.ToString(), AccessPermission.IsView))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }
+            }*/
             List<RolesModel> RoleList = _rolesService.GetAllRoles();
             return View(RoleList);
         }

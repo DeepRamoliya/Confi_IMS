@@ -377,6 +377,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Base\AccessDenied.cshtml" />
+    <Content Include="Views\FormRoleMapping\ViewPermission.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -388,8 +390,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Base\" />
-    <Folder Include="Views\FormRoleMapping\" />
     <Folder Include="Views\Form\" />
   </ItemGroup>
   <ItemGroup>

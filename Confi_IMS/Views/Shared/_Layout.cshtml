@@ -1,106 +1,4 @@
-﻿@*<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title -IMS</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/style.css" rel="stylesheet" />
-    <script src="~/Content/bootstrap.bundle.min.js"></script>
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
-
-
-    @Styles.Render("~/Content/css")
-
-    @Scripts.Render("~/bundles/modernizr")
-    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
-    <link rel="icon" href="~/favicon.ico" />
-
-    <style>
-
-
-        .navbar {
-            overflow: hidden;
-            background-color: teal !important;
-            font-family: Arial, Helvetica, sans-serif;
-            padding: 5px 0 0 5px;
-        }
-
-            .navbar a {
-                float: left;
-                font-size: 16px;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-        li:hover a {
-            background-color: #4ecdc4 !important;
-            border-radius: 10px;
-        }
-
-        ul li a {
-            color: white !important;
-        }
-
-        .active {
-            background-color: #4ecdc4 !important;
-            border-radius: 10px;
-        }
-    </style>
-    <script>
-        $(document).ready(function () {
-            var menuLi = $("#hdnMenuCode").val();
-            $('#' + menuLi + '').addClass('active')
-            //$('.navbar-nav').find('[href="' + window.location.pathname + '"]').addClass('active')
-        });
-    </script>
-</head>
-<body>
-    <div class="navbar  navbar-fixed-top bg-secondary">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10" style="padding-right:10px !important;padding-left:10px!important;">
-            <div class="navbar-header">
-                <div class="logo">
-                    <a href="@Url.Action( "Index","Home")">
-                        <img src="~/Content/themes/images/IMS.png" width="80" style="margin-left:0px !important;" />
-                    </a>
-                </div>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-        <div class="col-sm-1"></div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - All Right Reserved</p>
-        </footer>
-    </div>
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("Javascript", required: false)
-
-    <script src="~/Content/bootstrap.bundle.min.js"></script>
-    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-</body>
-</html>*@
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -174,9 +72,9 @@
                     @Html.ActionLink("Purchase Product", "DisplayPurchase", "Purchase", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="Purchase" })
                    @Html.ActionLink("Sale Product", "DisplaySale", "Sale", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="Sale" })
 
-                     @Html.ActionLink("Role Master", "DisplayRole", "RoleMaster", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" ,id="RoleMaster" })
-                     @Html.ActionLink("Form Master", "DisplayForm", "ProductMaster", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="ProductMaster" })
-                     @Html.ActionLink("User Master", "DisplayUser", "SaleMaster", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="RoleMaster" })
+                     @Html.ActionLink("Role Master", "Index", "Roles", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" ,id="Roles" })
+                     @Html.ActionLink("Form Master", "Index", "Form", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="Form" })
+                     @*@Html.ActionLink("User Master", "Index", "User", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="RoleMaster" })*@
 
                     @Html.ActionLink("Logout", "LogOff", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
                 }
@@ -184,46 +82,6 @@
                 {
                     @Html.ActionLink("Login", "Login", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
                 }
-
-                @*@if (!Request.IsAuthenticated)
-        {
-            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-            {
-                @Html.AntiForgeryToken()
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li id="product">
-                        @Html.ActionLink("Products", "DisplayProduct", "Product")
-                    </li>
-                    <li id="purchaseproduct">
-                        @Html.ActionLink("Purchase Product", "DisplayPurchase", "Purchase")
-                    </li>
-                    <li id="saleproduct">
-                        @Html.ActionLink("Sale Product", "DisplaySale", "Sale")
-                    </li>
-                    <li id="rolemaster">
-                        @Html.ActionLink("Role Master", "DisplayRoleMaster", "RoleMaster")
-                    </li>
-                    <li id="formmaster">
-                        @Html.ActionLink("Form Master", "DisplayFormMaster", "FormMaster")
-                    </li>
-                    <li id="usermaster">
-                        @Html.ActionLink("User Master", "DisplayUserMasters", "UserMaster")
-                    </li>
-                    <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-                </ul>
-            }
-        }
-        else
-        {
-            <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-            </ul>
-        }*@
             </div>
         </div>
     </div>
