@@ -39,5 +39,10 @@ namespace IMS.Service
         {
             return _roleProvider.GetRolesByName(roleName);
         }
+
+        public webpages_Roles CreateRole(webpages_Roles role)
+        {
+            return _roleProvider.CreateRole(role);
+        }
     }
 }

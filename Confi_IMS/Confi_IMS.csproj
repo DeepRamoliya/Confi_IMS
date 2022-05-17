@@ -381,6 +381,7 @@
     <Content Include="Views\FormRoleMapping\ViewPermission.cshtml" />
     <Content Include="Views\Form\Index.cshtml" />
     <Content Include="Views\Form\Create.cshtml" />
+    <Content Include="Views\Roles\CreateRole.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

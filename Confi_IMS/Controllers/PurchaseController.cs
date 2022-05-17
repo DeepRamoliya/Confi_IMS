@@ -41,6 +41,7 @@ namespace Confi_IMS.Controllers
             ViewBag.Purchase_Product = _db.Products.Select(x => x.Product_Name).ToList(); 
             return View();
         }
+        [HttpPost]
         public ActionResult PurchaseProduct(Purchase pur)
         {
             purchaseService.PurchaseProduct(pur);
