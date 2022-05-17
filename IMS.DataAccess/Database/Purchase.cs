@@ -17,7 +17,9 @@ namespace IMS.DataAccess.Database
         [Display(Name = "Product Quntity")]
         public string Purchase_Quntity { get; set; }
 
-        [Display(Name = "Date")]
+        [Display(Name = "Purchase Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime Purchase_date { get; set; }
 
     }

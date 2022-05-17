@@ -18,8 +18,6 @@ namespace IMS.DataAccess
 
         public int CreateForms(FormMst forms)
         {
-            _db.FormMst.Add(forms);
-            _db.SaveChanges();
             try
             {
                 _db.FormMst.Add(forms);

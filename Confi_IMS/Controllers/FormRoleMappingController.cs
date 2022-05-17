@@ -28,7 +28,7 @@ namespace Confi_IMS.Controllers
         {
 
             string role = _roleService.GetRolesById().Name;
-            if (role != "Administrator")
+            if (role != "Admin")
             {
                 return RedirectToAction("AccessDenied", "Base");
             }

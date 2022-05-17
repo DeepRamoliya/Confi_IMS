@@ -17,6 +17,7 @@ namespace IMS.Model
         public string Purchase_Quntity { get; set; }
 
         [Display(Name = "Date")]
+        [DataType(DataType.DateTime)]
         public System.DateTime Purchase_date { get; set; }
     }
 }
