@@ -383,6 +383,8 @@
     <Content Include="Views\Form\Index.cshtml" />
     <Content Include="Views\Form\Create.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\UserMst\DisplayUserRoleMapping.cshtml" />
+    <Content Include="Views\UserMst\EditUserRoleMapping.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -394,7 +396,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\UserMst\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

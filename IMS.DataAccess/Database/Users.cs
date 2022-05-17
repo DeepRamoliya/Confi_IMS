@@ -35,5 +35,7 @@ namespace IMS.DataAccess.Database
         public bool IsEmailVerified { get; set; }
         public Guid? ActivationCode { get; set; }
         public string ResetPasswordCode { get; set; }
+
+        public int ? Role { get; set; }
     }
 }
