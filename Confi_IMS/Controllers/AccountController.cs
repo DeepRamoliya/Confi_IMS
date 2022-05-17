@@ -10,11 +10,54 @@ using IMS.DataAccess;
 using static IMS.Model.AccountModel;
 using IMS.Model;
 using System.Threading.Tasks;
+using IMS.DataAccess.Database;
 
 namespace Confi_IMS.Controllers
 {
     public class AccountController : Controller
     {
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        //POST: Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(User _user)
+        {
+            if (ModelState.IsValid)
+            {
+                Confi_IMSEntities _db = new Confi_IMSEntities();
+                var check = _db.User.FirstOrDefault(s => s.EmailId == _user.EmailId);
+                if (check == null)
+                {
+                    _db.Configuration.ValidateOnSaveEnabled = false;
+                    _user.IsActive = true ;
+                    _user.IsDeleted = false;
+                    _user.IsEmailVerified = true;
+                    _user.CreatedOn = DateTime.Now;
+                    _user.CreatedBy = 1;
+                    _user.UpdatedBy = 1;
+                    _db.User.Add(_user);
+                    _db.SaveChanges();
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ViewBag.error = "Email already exists";
+                    return View();
+                }
+
+
+            }
+            return View();
+
+
+        }
+
+
+
         [AllowAnonymous]
         public ActionResult Login()
         {

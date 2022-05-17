@@ -315,6 +315,7 @@
     <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
+    <Compile Include="Controllers\UserMstController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -381,6 +382,7 @@
     <Content Include="Views\FormRoleMapping\ViewPermission.cshtml" />
     <Content Include="Views\Form\Index.cshtml" />
     <Content Include="Views\Form\Create.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -392,6 +394,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\UserMst\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IMS.DataAccess\IMS.DataAccess.csproj">
