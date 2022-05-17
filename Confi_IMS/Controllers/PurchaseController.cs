@@ -33,7 +33,7 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult PurchaseProduct()
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsAdd))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
@@ -50,7 +50,7 @@ namespace Confi_IMS.Controllers
 
         public ActionResult UpdatePurchase(int id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsEdit))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
@@ -80,25 +80,25 @@ namespace Confi_IMS.Controllers
         }
 
 
-        public ActionResult DeleteProduct(int id)
+        public ActionResult DeletePurchase(int id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsDelete))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
             Confi_IMSEntities _db = new Confi_IMSEntities();
-            Product pro = _db.Products.Where(x => x.id == id).SingleOrDefault();
+            Purchase pro = _db.Purchase.Where(x => x.id == id).SingleOrDefault();
             return View(pro);
         }
 
         [HttpPost]
-        public ActionResult DeleteProduct(int id, Product pro)
+        public ActionResult DeletePurchase(int id, Purchase pro)
         {
             Confi_IMSEntities _db = new Confi_IMSEntities();
-            Product p = _db.Products.Where(x => x.id == id).SingleOrDefault();
-            _db.Products.Remove(p);
+            Purchase p = _db.Purchase.Where(x => x.id == id).SingleOrDefault();
+            _db.Purchase.Remove(p);
             _db.SaveChanges();
-            return RedirectToAction("DisplayProduct");
+            return RedirectToAction("DisplayPurchase");
         }
 
     }

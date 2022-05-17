@@ -32,7 +32,7 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult CreateProduct()
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsAdd))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
@@ -50,7 +50,7 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult UpdateProduct(int id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsEdit))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
@@ -82,7 +82,7 @@ namespace Confi_IMS.Controllers
        
             public ActionResult DeleteProduct(int id)
             {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsDelete))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }

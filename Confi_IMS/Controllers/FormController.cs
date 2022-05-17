@@ -30,7 +30,7 @@ namespace Confi_IMS.Controllers
 
         public ActionResult Create(int? id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.FORM_MASTER.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.FORM_MASTER.ToString(), AccessPermission.IsAdd))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }

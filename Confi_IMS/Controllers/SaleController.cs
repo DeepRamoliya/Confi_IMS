@@ -31,7 +31,7 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult SaleProduct()
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsAdd))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
@@ -39,6 +39,7 @@ namespace Confi_IMS.Controllers
             ViewBag.Sale_Product = _db.Products.Select(x => x.Product_Name).ToList();
             return View();
         }
+        [HttpPost]
         public ActionResult SaleProduct(Sale pur)
         {
             saleService.SaleProduct(pur);
@@ -48,7 +49,7 @@ namespace Confi_IMS.Controllers
 
         public ActionResult UpdateSale(int id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsEdit))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
@@ -78,25 +79,25 @@ namespace Confi_IMS.Controllers
         }
 
 
-        public ActionResult DeleteProduct(int id)
+        public ActionResult DeleteSale(int id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsDelete))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
             Confi_IMSEntities _db = new Confi_IMSEntities();
-            Product pro = _db.Products.Where(x => x.id == id).SingleOrDefault();
+            Sale pro = _db.Sale.Where(x => x.id == id).SingleOrDefault();
             return View(pro);
         }
 
         [HttpPost]
-        public ActionResult DeleteProduct(int id, Product pro)
+        public ActionResult DeleteSale(int id, Sale pro)
         {
             Confi_IMSEntities _db = new Confi_IMSEntities();
-            Product p = _db.Products.Where(x => x.id == id).SingleOrDefault();
-            _db.Products.Remove(p);
+            Sale p = _db.Sale.Where(x => x.id == id).SingleOrDefault();
+            _db.Sale.Remove(p);
             _db.SaveChanges();
-            return RedirectToAction("DisplayProduct");
+            return RedirectToAction("DisplaySale");
         }
 
     }
