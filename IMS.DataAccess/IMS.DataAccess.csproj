@@ -80,6 +80,7 @@
     <Compile Include="PurchaseProvider.cs" />
     <Compile Include="RolesProvider.cs" />
     <Compile Include="SaleProvider.cs" />
+    <Compile Include="UserMstProvider.cs" />
     <Compile Include="UserProvider.cs" />
   </ItemGroup>
   <ItemGroup>

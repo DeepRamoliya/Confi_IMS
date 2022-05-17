@@ -82,6 +82,7 @@
     <Compile Include="RolesModel.cs" />
     <Compile Include="SaleModel.cs" />
     <Compile Include="SessionHelper.cs" />
+    <Compile Include="UserMstModel.cs" />
     <Compile Include="UsersModel.cs" />
   </ItemGroup>
   <ItemGroup>

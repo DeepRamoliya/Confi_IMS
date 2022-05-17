@@ -6,12 +6,14 @@ using System.Web.Mvc;
 
 namespace Confi_IMS.Controllers
 {
-    public class UserMstController : Controller
+    public class UserMstController : BaseController
     {
         // GET: UserMst
         public ActionResult Index()
         {
             return View();
         }
+
+
     }
 }
