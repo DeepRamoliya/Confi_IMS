@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Confi_IMS.Controllers
 {
-    public class SaleController : Controller
+    public class SaleController : BaseController
     {
         private readonly SaleService saleService;
         public SaleController()
@@ -19,6 +19,10 @@ namespace Confi_IMS.Controllers
         }
         public ActionResult DisplaySale()
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             List<Sale> sale = saleService.GetAllProducts();
             return View(sale);
         }
@@ -27,6 +31,10 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult SaleProduct()
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Confi_IMSEntities _db = new Confi_IMSEntities();
             ViewBag.Sale_Product = _db.Products.Select(x => x.Product_Name).ToList();
             return View();
@@ -40,6 +48,10 @@ namespace Confi_IMS.Controllers
 
         public ActionResult UpdateSale(int id)
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Sale sale = saleService.GetSaleById(id);
             return View(sale);
         }
@@ -57,6 +69,10 @@ namespace Confi_IMS.Controllers
 
         public ActionResult SaleDetail(int id)
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Sale sale = saleService.GetSaleById(id);
             return View(sale);
         }
@@ -64,6 +80,10 @@ namespace Confi_IMS.Controllers
 
         public ActionResult DeleteProduct(int id)
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.SALE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Confi_IMSEntities _db = new Confi_IMSEntities();
             Product pro = _db.Products.Where(x => x.id == id).SingleOrDefault();
             return View(pro);

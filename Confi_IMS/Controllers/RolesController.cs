@@ -17,7 +17,7 @@ namespace Confi_IMS.Controllers
         }
         public ActionResult Index(int? page)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.ROLE.ToString(), AccessPermission.IsView))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.ROLE_MASTER.ToString(), AccessPermission.IsView))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }

@@ -10,8 +10,12 @@ namespace IMS.Model
     {
         public enum FormAccessCode
         {
-
-            CATEGORY = 1,
+            PRODUCT = 1,
+            PURCHASE_PRODUCT = 2,
+            SALE_PRODUCT = 3,
+            ROLE_MASTER = 4,
+            FORM_MASTER = 5,
+            /*CATEGORY = 1,
             EMPLOYEE = 2,
             INWARD = 3,
             PRODUCT = 4,
@@ -23,7 +27,7 @@ namespace IMS.Model
             PRODUCTEMPLOYEEMAPPING = 10,
             FORMMASTER = 11,
             ROLE = 12,
-            USER = 13,
+            USER = 13,*/
         }
     }
 }

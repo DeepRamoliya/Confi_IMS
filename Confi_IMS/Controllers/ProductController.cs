@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace Confi_IMS.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         private readonly ProductService productService;
         public ProductController()
@@ -20,6 +20,10 @@ namespace Confi_IMS.Controllers
         }
         public ActionResult DisplayProduct()
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             List<Product> product = productService.GetAllProducts();
             return View(product);
         }
@@ -28,6 +32,10 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult CreateProduct()
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             return View();
         }
 
@@ -42,6 +50,10 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult UpdateProduct(int id)
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Product product = productService.GetProductById(id);
             return View(product);
         }
@@ -59,6 +71,10 @@ namespace Confi_IMS.Controllers
 
             public ActionResult ProductDetail(int id)
             {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Product product =  productService.GetProductById(id);
               return View(product);
             }
@@ -66,6 +82,10 @@ namespace Confi_IMS.Controllers
        
             public ActionResult DeleteProduct(int id)
             {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Confi_IMSEntities _db = new Confi_IMSEntities();
             Product pro = _db.Products.Where(x => x.id == id).SingleOrDefault();
             return View(pro);

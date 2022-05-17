@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace Confi_IMS.Controllers
 {
     
-    public class PurchaseController : Controller
+    public class PurchaseController : BaseController
     {
         
         private readonly PurchaseService purchaseService;
@@ -21,6 +21,10 @@ namespace Confi_IMS.Controllers
         }
         public ActionResult DisplayPurchase()
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             List<Purchase> purchase = purchaseService.GetAllProducts();
             return View(purchase);
         }
@@ -29,6 +33,10 @@ namespace Confi_IMS.Controllers
         [HttpGet]
         public ActionResult PurchaseProduct()
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Confi_IMSEntities _db = new Confi_IMSEntities();
             ViewBag.Purchase_Product = _db.Products.Select(x => x.Product_Name).ToList(); 
             return View();
@@ -42,6 +50,10 @@ namespace Confi_IMS.Controllers
 
         public ActionResult UpdatePurchase(int id)
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Purchase purchase = purchaseService.GetPurchaseById(id);
             return View(purchase);
         }
@@ -59,6 +71,10 @@ namespace Confi_IMS.Controllers
 
         public ActionResult PurchaseDetail(int id)
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Purchase purchase = purchaseService.GetPurchaseById(id);
             return View(purchase);
         }
@@ -66,6 +82,10 @@ namespace Confi_IMS.Controllers
 
         public ActionResult DeleteProduct(int id)
         {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             Confi_IMSEntities _db = new Confi_IMSEntities();
             Product pro = _db.Products.Where(x => x.id == id).SingleOrDefault();
             return View(pro);
