@@ -67,19 +67,20 @@
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                   
-                    @Html.ActionLink("Products", "DisplayProduct", "Product", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" , id ="Product" })
-                    @Html.ActionLink("Purchase Product", "DisplayPurchase", "Purchase", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="Purchase" })
-                   @Html.ActionLink("Sale Product", "DisplaySale", "Sale", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="Sale" })
 
-                     @Html.ActionLink("Role Master", "Index", "Roles", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" ,id="Roles" })
-                     @Html.ActionLink("Form Master", "Index", "Form", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="Form" })
-                     @Html.ActionLink("User Master", "DisplayUserRoleMapping", "UserMst", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;",id="UserMst" })
+                    @Html.ActionLink("Products", "DisplayProduct", "Product", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Product" })
+                    @Html.ActionLink("Purchase Product", "DisplayPurchase", "Purchase", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Purchase" })
+                    @Html.ActionLink("Sale Product", "DisplaySale", "Sale", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Sale" })
+
+                    @Html.ActionLink("Role Master", "Index", "Roles", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Roles" })
+                    @Html.ActionLink("Form Master", "Index", "Form", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Form" })
+                    @Html.ActionLink("User Master", "DisplayUserRoleMapping", "UserMst", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "UserMst" })
 
                     @Html.ActionLink("Logout", "LogOff", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
                 }
                 else
                 {
+                    @Html.ActionLink("Register", "Register", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
                     @Html.ActionLink("Login", "Login", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
                 }
             </div>

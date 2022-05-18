@@ -8,6 +8,8 @@ namespace IMS.Model
 {
     public class DropDownList
     {
-        public string Purchase_Product{ get; set; }
+        public string Key { get; set; }
+        public int Value { get; set; }
+        public int Displayorder { get; set; }
     }
 }

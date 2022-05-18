@@ -1,4 +1,5 @@
 ﻿using IMS.DataAccess.Database;
+using IMS.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,26 +20,22 @@ namespace IMS.DataAccess
         {
             return _db.User.Find(id);
         }
-        
         public User UpdateUsersRole(User pur)
         {
-            /* var objpur = GetRoleById(pur.id);
-             objpur.Purchase_Product = pur.Purchase_Product;
-             objpur.Purchase_Quntity = pur.Purchase_Quntity; 
-
-             _db.SaveChanges();
-             return pur;*/
-            webpages_UsersInRoles _webpages_UsersInRoles = new webpages_UsersInRoles()
+            webpages_UsersInRoles _webpages_UsersInRoles = new webpages_UsersInRoles();
             {
-                UserId = pur.Id,
-                RoleId = pur.Role,
-                };
-
-                _db.Purchase.Add(_Purchase);
-                _db.SaveChanges();
-
-                return objPurchase;
+                _webpages_UsersInRoles.RoleId = pur.Role;
+                _webpages_UsersInRoles.UserId = pur.Id;
             }
+            _db.webpages_UsersInRoles.Add(_webpages_UsersInRoles);
+            _db.SaveChanges();
+
+            return pur;
+        }
+
+        public List<DropDownList> BindRole()
+        {
+            return _db.webpages_Roles.Where(s => s.IsActive == true).Select(x => new DropDownList { Key = x.RoleName, Value = x.RoleId }).ToList();
         }
     }
 }

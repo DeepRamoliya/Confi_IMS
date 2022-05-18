@@ -4,11 +4,7 @@
     ViewBag.Title = "DisplayUserRoleMapping";
 }
 
-<h2>DisplayUserRoleMapping</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>UserRole Access</h2>
 <table class="table">
     <tr>
         <th>
@@ -108,9 +104,9 @@
             @Html.DisplayFor(modelItem => item.ResetPasswordCode)
         </td>*@
         <td>
-            @Html.ActionLink("Edit", "EditUserRoleMapping", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "EditUserRoleMapping", new { id=item.Id } ,new { @class = "btn btn-outline-info" }) 
+           @* @Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id } , new {@class ="btn btn-outline-danger" })
         </td>
     </tr>
 }

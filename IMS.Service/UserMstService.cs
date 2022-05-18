@@ -1,5 +1,6 @@
 ﻿using IMS.DataAccess;
 using IMS.DataAccess.Database;
+using IMS.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace IMS.Service
         public User UpdateUsersRole(User pur)
         {
             return userMstProvider.UpdateUsersRole(pur);
+        }
+
+        public List<DropDownList> BindRole()
+        {
+            return userMstProvider.BindRole();
         }
     }
 }

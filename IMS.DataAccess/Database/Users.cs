@@ -36,6 +36,6 @@ namespace IMS.DataAccess.Database
         public Guid? ActivationCode { get; set; }
         public string ResetPasswordCode { get; set; }
 
-        public int ? Role { get; set; }
+        public int Role { get; set; }
     }
 }

@@ -30,7 +30,9 @@ namespace Confi_IMS.Controllers
                 return RedirectToAction("AccessDenied", "Base");
             }*/
             Confi_IMSEntities _db = new Confi_IMSEntities();
-            ViewBag.Roles = _db.webpages_Roles.Select(x => x.RoleCode).ToList();
+            ViewBag.RoleList = userMstService.BindRole();
+
+
             User user = userMstService.GetUserById(id);
             return View(user);
         }
@@ -40,7 +42,7 @@ namespace Confi_IMS.Controllers
         public ActionResult EditUserRoleMapping(User pur)
         {
             User objPurchaseModel = userMstService.UpdateUsersRole(pur);
-            return RedirectToAction("DisplayPurchase");
+            return RedirectToAction("DisplayUserRoleMapping");
 
         }
 
