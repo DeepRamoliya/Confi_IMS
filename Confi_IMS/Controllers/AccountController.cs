@@ -41,7 +41,9 @@ namespace Confi_IMS.Controllers
                     _user.UpdatedBy = 1;
                     _db.User.Add(_user);
                     _db.SaveChanges();
+                    
                     return RedirectToAction("Login");
+
                 }
                 else
                 {

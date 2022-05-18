@@ -1,5 +1,6 @@
 ﻿using IMS.DataAccess;
 using IMS.DataAccess.Database;
+using IMS.Model;
 using IMS.Service;
 using System;
 using System.Collections.Generic;
@@ -20,15 +21,19 @@ namespace Confi_IMS.Controllers
 
         public ActionResult DisplayUserRoleMapping()
         {
-           List<User> UserList = userMstService.GetAllUser();
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsView))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
+            List<User> UserList = userMstService.GetAllUser();
             return View(UserList);
         }
         public ActionResult EditUserRoleMapping(int id)
         {
-            /*if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.PURCHASE_PRODUCT.ToString(), AccessPermission.IsEdit))
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsEdit))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }*/
+            }
             Confi_IMSEntities _db = new Confi_IMSEntities();
             ViewBag.RoleList = userMstService.BindRole();
 
@@ -48,7 +53,12 @@ namespace Confi_IMS.Controllers
 
         public ActionResult DeleteUser(int id)
         {
-             userMstService.DeleteUser(id);
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsDelete))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
+          
+            userMstService.DeleteUser(id);
             return RedirectToAction("DisplayUserRoleMapping");
 
         }

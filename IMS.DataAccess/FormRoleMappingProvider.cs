@@ -157,10 +157,9 @@ namespace IMS.DataAccess
         public FormRoleMappingModel CheckFormAccess(string _formaccessCode)
         {
             int _roleID = (from user in _db.User
-                           join roles in _db.webpages_UsersInRoles on user.Id equals roles.UserId
+                           join roles in _db.UserRoleMapping on user.Id equals roles.UserId
                            where user.EmailId == SessionHelper.EmailId
                            select roles.RoleId).FirstOrDefault();
-
 
             SqlParameter param1 = new SqlParameter("@formaccessCode", _formaccessCode);
             SqlParameter param2 = new SqlParameter("@roleID", _roleID);

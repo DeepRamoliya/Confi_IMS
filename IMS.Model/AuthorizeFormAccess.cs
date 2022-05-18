@@ -15,6 +15,7 @@ namespace IMS.Model
             SALE_PRODUCT = 3,
             ROLE_MASTER = 4,
             FORM_MASTER = 5,
+            USER_MASTER = 6,
             /*CATEGORY = 1,
             EMPLOYEE = 2,
             INWARD = 3,

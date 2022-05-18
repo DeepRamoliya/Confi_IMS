@@ -30,5 +30,6 @@ namespace IMS.DataAccess
         public System.Data.Entity.DbSet<IMS.Model.ProductModel> ProductModels { get; set; }
         public DbSet<FormRoleMapping> FormRoleMapping { get; set; }
         public DbSet<webpages_UsersInRoles> webpages_UsersInRoles { get; set; }
+        public DbSet<UserRoleMapping> UserRoleMapping { get; set; }
     }
 }

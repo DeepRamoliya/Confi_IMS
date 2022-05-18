@@ -22,12 +22,12 @@ namespace IMS.DataAccess
         }
         public User UpdateUsersRole(User pur)
         {
-            webpages_UsersInRoles _webpages_UsersInRoles = new webpages_UsersInRoles();
+            UserRoleMapping _userRoleMapping= new UserRoleMapping();
             {
-                _webpages_UsersInRoles.RoleId = pur.Role;
-                _webpages_UsersInRoles.UserId = pur.Id;
+                _userRoleMapping.RoleId = pur.Role;
+                _userRoleMapping.UserId = pur.Id;
             }
-            _db.webpages_UsersInRoles.Add(_webpages_UsersInRoles);
+            _db.UserRoleMapping.Add(_userRoleMapping);
             _db.SaveChanges();
 
             return pur;

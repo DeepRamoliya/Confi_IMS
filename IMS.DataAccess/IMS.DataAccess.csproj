@@ -69,6 +69,7 @@
     <Compile Include="Database\Product.cs" />
     <Compile Include="Database\Purchase.cs" />
     <Compile Include="Database\Sale.cs" />
+    <Compile Include="Database\UserRoleMapping.cs" />
     <Compile Include="Database\Users.cs" />
     <Compile Include="Database\webpages_Roles.cs" />
     <Compile Include="Database\webpages_UsersInRoles.cs" />
