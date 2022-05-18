@@ -46,6 +46,13 @@ namespace Confi_IMS.Controllers
 
         }
 
+        public ActionResult DeleteUser(int id)
+        {
+             userMstService.DeleteUser(id);
+            return RedirectToAction("DisplayUserRoleMapping");
+
+        }
+
 
     }
 }

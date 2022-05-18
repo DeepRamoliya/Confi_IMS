@@ -37,5 +37,13 @@ namespace IMS.DataAccess
         {
             return _db.webpages_Roles.Where(s => s.IsActive == true).Select(x => new DropDownList { Key = x.RoleName, Value = x.RoleId }).ToList();
         }
+
+        public User DeleteUser(int id)
+        {
+            var s =_db.User.Find(id);
+            _db.User.Remove(s);
+            _db.SaveChanges();
+            return s;
+        }
     }
 }

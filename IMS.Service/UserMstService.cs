@@ -35,5 +35,10 @@ namespace IMS.Service
         {
             return userMstProvider.BindRole();
         }
+
+        public User DeleteUser(int id)
+        {
+            return userMstProvider.DeleteUser(id);
+        }
     }
 }

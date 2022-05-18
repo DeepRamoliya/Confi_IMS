@@ -8,11 +8,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <section class="section">
+   @* <section class="section">*@
         <div class="container">
-            <h4 class="h4 mb-4">Manage Module</h4>
+            <h2>Manage Module</h2>
             <div class="col-md-12 text-right">
-                <a href="@Url.Action("Create","Form")" class="btn btn-primary">Add</a>
+                <a href="@Url.Action("Create","Form")" class="btn btn-outline-primary">Create New</a>
             </div>
             <br />
             <div class="table-responsive">
@@ -85,7 +85,7 @@
                 </table>
             </div>
         </div>
-    </section>
+   @* </section>*@
     <input type="hidden" id="hdnMenuCode" value="Form" />
 </body>
 </html>

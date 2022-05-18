@@ -4,10 +4,12 @@
     ViewBag.Title = "DisplaySale";
 }
 
-<h2>Display Sale</h2>
+<h2>Sale List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "SaleProduct", null, new { @class = "btn btn-outline-primary" })
+    <div class="col-md-12 text-right">
+        @Html.ActionLink("Create New", "SaleProduct", null, new { @class = "btn btn-outline-primary" })
+        </div>
 </p>
 <table class="table">
     <tr>

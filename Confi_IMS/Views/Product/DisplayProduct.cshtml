@@ -5,11 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DisplayProduct</h2>
+<h2>Product List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateProduct", null, new { @class = " btn btn-outline-primary" })
-</p>
+    <div class="col-md-12 text-right">
+        @Html.ActionLink("Create New", "CreateProduct", null, new { @class = " btn btn-outline-primary" })
+    </div>
+    </p>
 <table class="table">
     <tr>
         <th>

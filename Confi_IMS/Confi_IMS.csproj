@@ -385,6 +385,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\UserMst\DisplayUserRoleMapping.cshtml" />
     <Content Include="Views\UserMst\EditUserRoleMapping.cshtml" />
+    <Content Include="Views\UserMst\DeleteUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
