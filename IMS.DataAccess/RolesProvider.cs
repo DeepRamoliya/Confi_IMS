@@ -38,6 +38,24 @@ namespace IMS.DataAccess
         {
             return _db.webpages_Roles.Where(x => x.RoleName == roleName).FirstOrDefault();
         }
+
+        public webpages_Roles CreateRole(webpages_Roles role)
+        {
+            webpages_Roles _webpages_Roles = new webpages_Roles()
+            {
+               RoleId = role.RoleId,
+               RoleName = role.RoleName,
+               RoleCode = role.RoleCode,
+               IsActive = role.IsActive,
+               UpdatedOn=DateTime.Now,
+               UpdatedBy = SessionHelper.RoleId,
+            };
+
+            _db.webpages_Roles.Add(_webpages_Roles);
+            _db.SaveChanges();
+
+            return role;
+        }
     }
 
 }

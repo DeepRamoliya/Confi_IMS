@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IMS.Model;
+using IMS.DataAccess.Database;
 
 namespace Confi_IMS.Controllers
 {
@@ -23,6 +24,17 @@ namespace Confi_IMS.Controllers
             }
             List<RolesModel> RoleList = _rolesService.GetAllRoles();
             return View(RoleList);
+        }
+
+        public ActionResult CreateRole()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateRole(webpages_Roles role)
+        {
+            _rolesService.CreateRole(role);
+            return RedirectToAction("Index");
         }
     }
 }
