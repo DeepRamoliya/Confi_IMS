@@ -87,13 +87,13 @@
                                         </div>
                                     </div>
                                     @*<div class="form_input_box">
-                                        <div class="form-group">
-                                            <label for="">Parent Form</label>
-                                            <div class="input_box">
-                                                @Html.DropDownListFor(model => model.ParentFormId, Model._ParentFormList, new { @class = "form-control", id = "Form" })
+                                            <div class="form-group">
+                                                <label for="">Parent Form</label>
+                                                <div class="input_box">
+                                                    @Html.DropDownListFor(model => model.ParentFormId, Model._ParentFormList, new { @class = "form-control", id = "Form" })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>*@
+                                        </div>*@
                                     <div class="form-group">
                                         <label class="form-check-label" for="">Is Display Menu</label>
                                         <div class="form-check form-switch">
@@ -123,6 +123,7 @@
             </div>
         }
     </div>
+    <input type="hidden" id="hdnMenuCode" value="Form" />
 </section>
 
 
