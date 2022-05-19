@@ -3,15 +3,18 @@
 @{
     ViewBag.Title = "DisplaySale";
 }
-
-<h2>Sale List</h2>
-
-<p>
-    <div class="col-md-12 text-right">
-        @Html.ActionLink("Create New", "SaleProduct", null, new { @class = "btn btn-outline-primary" })
+<div class="row">
+    <div class="col-4">
+        <h2>Sale List</h2>
+    </div>
+    <div class="col-8">
+        <div class="col-md-12 text-right">
+            @Html.ActionLink("Create New", "SaleProduct", null, new { @class = "btn btn-outline-primary" })
         </div>
-</p>
-<div class="table-responsive">
+    </div>
+</div>
+
+<div class="table-responsive mt-3">
     <table class="table">
         <thead>
             <tr>

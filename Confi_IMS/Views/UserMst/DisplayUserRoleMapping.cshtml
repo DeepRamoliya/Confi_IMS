@@ -5,8 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>User Role Access</h2>
-<div class="table-responsive">
+<div class="row">
+    <div class="col-4">
+        <h2>User Role Access</h2>
+    </div>
+    <div class="col-8">
+        @*<div class="col-md-12 text-right">
+            @Html.ActionLink("Create New", "SaleProduct", null, new { @class = "btn btn-outline-primary" })
+        </div>*@
+    </div>
+</div>
+
+
+<div class="table-responsive mt-3">
     <table class="table">
         <thead>
             <tr>

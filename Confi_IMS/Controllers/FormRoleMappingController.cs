@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Confi_IMS.Controllers
 {
-    public class FormRoleMappingController : Controller
+    public class FormRoleMappingController : BaseController
     {
 
         private readonly FormRoleMappingService _formRoleMapping;
@@ -28,7 +28,7 @@ namespace Confi_IMS.Controllers
         {
 
             string role = _roleService.GetRolesById().Name;
-            if (role != "Admin")
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsEdit))
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
@@ -39,6 +39,7 @@ namespace Confi_IMS.Controllers
                 model.RoleId = Id;
                 model.RoleName = _roleService.GetRolesById().Name;
             }
+            
             List<FormRoleMappingModel> Formrolemapping = FormRoleMapping_Read(model.RoleId);
             return View(Formrolemapping);
         }
