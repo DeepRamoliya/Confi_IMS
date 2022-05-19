@@ -150,7 +150,7 @@ namespace Confi_IMS.Controllers
             var verifyUrl = "/Account/" + emailFor + "/" + activationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
-            var fromEmail = new MailAddress("okaytemporary@gmail.com", "OIMS");
+            var fromEmail = new MailAddress("okaytemporary@gmail.com", "IMS");
             var toEmail = new MailAddress(emailID);
             var fromEmailPassword = "okaytemporary@12345"; // Replace with actual password
 
