@@ -10,12 +10,14 @@ namespace IMS.DataAccess.Database
     public class FormMst
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         [Display(Name = "Navigate URL")]
         public string NavigateURL { get; set; }
         [Display(Name = "Parent FormId")]
         public int? ParentFormId { get; set; }
         [Display(Name = "Form Access Code")]
+        [Required]
         public string FormAccessCode { get; set; }
         [Display(Name = "Display Order")]
         public int? DisplayOrder { get; set; }

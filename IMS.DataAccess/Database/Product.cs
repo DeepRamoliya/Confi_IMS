@@ -12,9 +12,10 @@ namespace IMS.DataAccess.Database
         public int id { get; set; }
 
         [Display(Name = "Product Name ")]
+        [Required]
         public string Product_Name { get; set; }
         [Display(Name = "Product Quntity")]
-
+        [Required]
         public string Product_Quntity { get; set; }
     }
 }

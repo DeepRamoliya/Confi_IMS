@@ -10,13 +10,13 @@
 <body>
    @* <section class="section">*@
         <div class="container">
-            <h2>Manage Module</h2>
+            <h2>Manage Form</h2>
             <div class="col-md-12 text-right">
                 <a href="@Url.Action("Create","Form")" class="btn btn-outline-primary">Create New</a>
             </div>
             <br />
             <div class="table-responsive">
-                <table class="table table-sm">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>
@@ -46,7 +46,7 @@
                     @foreach (var item in Model)
                     {
                         <tbody>
-                            <tr class="align-middle">
+                            <tr @*class="align-middle"*@>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>

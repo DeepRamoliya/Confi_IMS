@@ -12,15 +12,20 @@ namespace IMS.DataAccess.Database
         [Key]
         public int Id { get; set; }
         [Display(Name = "User Name")]
+        [Required]
         public string UserName { get; set; }
         [Display(Name = "Name")]
+        [Required]
         public string Name { get; set; }
         [Display(Name = "Email Id")]
+        [Required]
         public string EmailId { get; set; }
         [Display(Name = "Mobile No")]
+        [Required]
         public string MobileNo { get; set; }
         public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; } 
+        public bool IsDeleted { get; set; }
+        [Required]
         public string Designation { get; set; }
         [Display(Name = "Updated By")]
         public int? UpdatedBy { get; set; }
@@ -29,8 +34,9 @@ namespace IMS.DataAccess.Database
         public int? CreatedBy { get; set; }
         [Display(Name = "Created On")]
         public DateTime? CreatedOn { get; set; }
-
+        [Required]
         public string Password { get; set; }
+        [Required]
         public string ConfirmPassword { get; set; }
         public bool IsEmailVerified { get; set; }
         public Guid? ActivationCode { get; set; }

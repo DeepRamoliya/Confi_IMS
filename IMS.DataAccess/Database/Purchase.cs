@@ -11,12 +11,13 @@ namespace IMS.DataAccess.Database
     {
 
         public int id { get; set; }
+        [Required]
         [Display(Name = "Purchase Product")]
         public string Purchase_Product { get; set; }
-
+        [Required]
         [Display(Name = "Product Quntity")]
         public string Purchase_Quntity { get; set; }
-
+        [Required]
         [Display(Name = "Purchase Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

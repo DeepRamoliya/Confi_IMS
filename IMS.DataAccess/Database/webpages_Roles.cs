@@ -13,9 +13,11 @@ namespace IMS.DataAccess.Database
         [Key]
         public int RoleId { get; set; }
         [Display(Name = "Role Name")]
+        [Required]
         public string RoleName { get; set; }
         public bool IsActive { get; set; }
         [Display(Name = "Role Code")]
+        [Required]
         public string RoleCode { get; set; }
         [Display(Name = "Update By")]
         public int UpdatedBy { get; set; }

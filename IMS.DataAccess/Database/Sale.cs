@@ -11,8 +11,10 @@ namespace IMS.DataAccess.Database
     {
         public int id { get; set; }
         [Display(Name = "Sale Product")]
+        [Required]
         public string Sale_Product { get; set; }
         [Display(Name = "Sale Quntity")]
+        [Required]
         public string Sale_Quntity { get; set; }
         [Display(Name = "Sale Date")]
         [DataType(DataType.Date)]

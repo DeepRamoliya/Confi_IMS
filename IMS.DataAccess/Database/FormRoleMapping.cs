@@ -13,6 +13,7 @@ namespace IMS.DataAccess.Database
         [Key]
         public int Id { get; set; }
         [Display(Name = "Role Id")]
+        [Required]
         public int RoleId { get; set; }
         [Display(Name = "Full Right")]
         public bool FullRights { get; set; }
