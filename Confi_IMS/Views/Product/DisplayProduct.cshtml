@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<IMS.DataAccess.Database.Product>
+@using System.Web.Optimization
+
 
 @{
     ViewBag.Title = "DisplayProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Product List</h2>
 
 <p>
@@ -12,36 +13,37 @@
         @Html.ActionLink("Create New", "CreateProduct", null, new { @class = " btn btn-outline-primary" })
     </div>
 </p>
-<table class="table" id="tblForm">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Product_Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product_Quntity)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table" id="myDataTable">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product_Quntity)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "UpdateProduct", new { id = item.id }, new { @class = "btn btn-outline-info" })
-                    @*@Html.ActionLink("Details", "ProductDetail", new { id=item.id }, new { @class = "btn btn-primary" })*@
-                    @Html.ActionLink("Delete", "DeleteProduct", new { id = item.id }, new { @class = "btn btn-outline-danger" })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product_Quntity)
+                </th>
+                <th>@Html.DisplayName("Action")</th>
             </tr>
-        }
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product_Quntity)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "UpdateProduct", new { id = item.id }, new { @class = "btn btn-outline-info" })
+                        @*@Html.ActionLink("Details", "ProductDetail", new { id=item.id }, new { @class = "btn btn-primary" })*@
+                        @Html.ActionLink("Delete", "DeleteProduct", new { id = item.id }, new { @class = "btn btn-outline-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 <input type="hidden" id="hdnMenuCode" value="Product" />

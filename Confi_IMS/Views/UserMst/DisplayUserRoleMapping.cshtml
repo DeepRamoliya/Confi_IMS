@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UserRole Access</h2>
-<div class="table-responsive container">
+<h2>User Role Access</h2>
+<div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
@@ -57,7 +57,7 @@
                 @Html.DisplayNameFor(model => model.ResetPasswordCode)
             </th>
                 *@
-                <th></th>
+                <th>@Html.DisplayName("Action")</th>
             </tr>
         </thead>
         <tbody>
@@ -119,3 +119,4 @@
         </tbody>
     </table>
 </div>
+<input type="hidden" id="hdnMenuCode" value="UserMst" />

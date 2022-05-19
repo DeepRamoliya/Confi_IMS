@@ -375,7 +375,6 @@
     <Content Include="Views\Sale\UpdateSale.cshtml" />
     <Content Include="Views\Sale\SaleDetail.cshtml" />
     <Content Include="Views\Sale\DeleteSale.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Base\AccessDenied.cshtml" />

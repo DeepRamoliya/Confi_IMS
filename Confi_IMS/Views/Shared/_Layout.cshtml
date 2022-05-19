@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,8 +8,9 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
     <style>
         body {
             padding-top: 0px !important;
@@ -19,7 +21,6 @@
             overflow: hidden;
             background-color: teal !important;
             font-family: Arial, Helvetica, sans-serif;
-          
         }
 
         .navbar-brand {
@@ -81,8 +82,8 @@
                 }
                 else
                 {
-                    @Html.ActionLink("Register", "Register", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
-                    @Html.ActionLink("Login", "Login", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
+                    @Html.ActionLink("Register", "Register", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Register" })
+                    @Html.ActionLink("Login", "Login", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Login" })
                 }
             </div>
         </div>
@@ -95,11 +96,6 @@
     <footer class="container">
         <p>&copy; @DateTime.Now.Year - All Right Received</p>
     </footer>
-   
-
-    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </body>

@@ -14,12 +14,12 @@ html body {
 }
 
 /* Table */
-.table>:not(:first-child) {
+/*.table>:not(:first-child) {
   border-top: 2px solid #dee2e6;
 }
 .table-sm>:not(caption)>*>* {
   padding: 12px 1px;
-}
+}*/
 .action-icons a {
   margin: 0 6px;
 }
@@ -250,31 +250,31 @@ le >
     margin-top: -11px;
 }
 
-.table {
-    margin-top: 35px;
-}
-.h5, h5 {
+/*.table {
+    margin-top: 15px;
+}*/
+/*.h5, h5 {
     font-size: 1.25rem;
     color: white !important;
-}
-table {
+}*/
+/*table {
     border-collapse: collapse
-}
-table td tr{
+}*/
+/*table td tr{
    padding: 5px;
-}
+}*/
 
 /*.btn-primary {
     margin-top: -92px;*/
 }
-.table-responsive {
+/*.table-responsive {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-}
- h3 {
+}*/
+/* h3 {
     font-size: 1.75rem;
     padding-top: 38px;
-}
+}*/
 #btnlogin {
     margin-top: 2px;
 }

@@ -4,13 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<!DOCTYPE html>
-<html lang="en">
-<body>
-   @* <section class="section">*@
-        <div class="container">
-            <h2>Manage Form</h2>
+            <h2>Manage Forms</h2>
             <div class="col-md-12 text-right">
                 <a href="@Url.Action("Create","Form")" class="btn btn-outline-primary">Create New</a>
             </div>
@@ -29,8 +23,8 @@
                                 @Html.DisplayNameFor(model => model.First().NavigateURL)
                             </th>
                             @* <th>
-                                    @Html.DisplayNameFor(model => model.First().ParentFormId)
-                                </th>*@
+                        @Html.DisplayNameFor(model => model.First().ParentFormId)
+                    </th>*@
                             <th>
                                 @Html.DisplayNameFor(model => model.First().DisplayOrder)
                             </th>
@@ -57,8 +51,8 @@
                                     @Html.DisplayFor(modelItem => item.NavigateURL)
                                 </td>
                                 @* <td>
-                                        @Html.DisplayFor(modelItem => item.ParentFormId)
-                                    </td>*@
+                            @Html.DisplayFor(modelItem => item.ParentFormId)
+                        </td>*@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.DisplayOrder)
                                 </td>
@@ -84,8 +78,4 @@
                     }
                 </table>
             </div>
-        </div>
-   @* </section>*@
     <input type="hidden" id="hdnMenuCode" value="Form" />
-</body>
-</html>

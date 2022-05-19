@@ -12,38 +12,43 @@
         @Html.ActionLink("Create New", "PurchaseProduct", null, new { @class = "btn btn-outline-primary" })
     </div>
     </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Purchase_Product)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Purchase_Quntity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Purchase_date)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Purchase_Product)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Purchase_Quntity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Purchase_date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "UpdatePurchase", new { id = item.id }, new { @class = "btn btn-outline-info" })
-            @*@Html.ActionLink("Details", "ProductDetail", new { id=item.id }, new { @class = "btn btn-primary" })*@
-            @Html.ActionLink("Delete", "DeletePurchase", new { id = item.id }, new { @class = "btn btn-outline-danger" })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Purchase_Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Purchase_Quntity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Purchase_date)
+                </th>
+                <th>@Html.DisplayName("Action")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Purchase_Product)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Purchase_Quntity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Purchase_date)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "UpdatePurchase", new { id = item.id }, new { @class = "btn btn-outline-info" })
+                        @*@Html.ActionLink("Details", "ProductDetail", new { id=item.id }, new { @class = "btn btn-primary" })*@
+                        @Html.ActionLink("Delete", "DeletePurchase", new { id = item.id }, new { @class = "btn btn-outline-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 <input type="hidden" id="hdnMenuCode" value="Purchase" />
