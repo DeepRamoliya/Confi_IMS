@@ -21,8 +21,9 @@ namespace IMS.DataAccess.Database
         [Required]
         public string EmailId { get; set; }
         [Display(Name = "Mobile No")]
-        [Phone]
+        [DataType(DataType.PhoneNumber)]
         [Required]
+        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Invalid Number")]
         public string MobileNo { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
