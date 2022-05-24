@@ -2,10 +2,8 @@
 using IMS.DataAccess.Database;
 using IMS.Model;
 using IMS.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Confi_IMS.Controllers
@@ -36,8 +34,6 @@ namespace Confi_IMS.Controllers
             }
             Confi_IMSEntities _db = new Confi_IMSEntities();
             ViewBag.RoleList = userMstService.BindRole();
-
-
             User user = userMstService.GetUserById(id);
             return View(user);
         }
@@ -48,7 +44,6 @@ namespace Confi_IMS.Controllers
         {
             User objPurchaseModel = userMstService.UpdateUsersRole(pur);
             return RedirectToAction("DisplayUserRoleMapping");
-
         }
 
         public ActionResult DeleteUser(int id)
@@ -57,12 +52,19 @@ namespace Confi_IMS.Controllers
             {
                 return RedirectToAction("AccessDenied", "Base");
             }
-          
+            Confi_IMSEntities _db = new Confi_IMSEntities();
+            User user = _db.User.Where(x => x.Id == id).SingleOrDefault();
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult DeleteUser(int id , User user)
+        {
+            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsDelete))
+            {
+                return RedirectToAction("AccessDenied", "Base");
+            }
             userMstService.DeleteUser(id);
             return RedirectToAction("DisplayUserRoleMapping");
-
         }
-
-
     }
 }

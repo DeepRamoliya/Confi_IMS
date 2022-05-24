@@ -1,11 +1,20 @@
 html body {
-    font-size: 14px;
+    font-size: 20px;
     background: white;
 }
 
 .section {
     padding: 40px 0;
 }
+.table {
+    background-color: mintcream;
+    border-radius: 15px 15px 0 0;
+    
+}
+.table tbody{
+    font-style:italic!important;
+}
+
 
 .dropdown-right .dropdown-menu {
   left: auto;
@@ -42,9 +51,9 @@ html body {
     z-index: 10;
     box-shadow: 0 0 6px rgb(135 151 185 / 10%);
 }
-.navbar-dark .navbar-nav .nav-link {
+/*.navbar-dark .navbar-nav .nav-link {
     color: rgb(92 95 112) !important;
-}
+}*/
 
 .logo a {
     display: block;
@@ -250,31 +259,6 @@ le >
     margin-top: -11px;
 }
 
-/*.table {
-    margin-top: 15px;
-}*/
-/*.h5, h5 {
-    font-size: 1.25rem;
-    color: white !important;
-}*/
-/*table {
-    border-collapse: collapse
-}*/
-/*table td tr{
-   padding: 5px;
-}*/
-
-/*.btn-primary {
-    margin-top: -92px;*/
-}
-/*.table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}*/
-/* h3 {
-    font-size: 1.75rem;
-    padding-top: 38px;
-}*/
 #btnlogin {
     margin-top: 2px;
 }
@@ -289,5 +273,12 @@ le >
     cursor:pointer;
 }
 
-
-
+.form{
+    display:block;
+    align-content:center;
+}
+.required::after {
+    content: " *";
+    font-weight: bold;
+    color: black;
+}

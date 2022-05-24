@@ -27,13 +27,6 @@ namespace IMS.Service
             return saleProvider.SaleProduct(objProduct);
         }
 
-       /* public List<System.Web.UI.WebControls.DropDownList> BindSaleProduct()
-        {
-            return saleProvider.BindSaleProduct();
-        }*/
-
-
-
         public Sale GetSaleById(int id)
         {
             var data = saleProvider.GetSaleById(id);

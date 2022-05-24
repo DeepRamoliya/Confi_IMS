@@ -181,28 +181,9 @@
     <Content Include="Content\Chart.min.css" />
     <Content Include="Content\chosen-sprite%402x.png" />
     <Content Include="Content\chosen-sprite.png" />
-    <Content Include="Content\images\Back Arrow.png" />
-    <Content Include="Content\images\Chair.jpg" />
     <Content Include="Content\images\check.png" />
-    <Content Include="Content\images\close.png" />
     <Content Include="Content\images\delete.png" />
     <Content Include="Content\images\edit.png" />
-    <Content Include="Content\images\electronic.png" />
-    <Content Include="Content\images\favicon.ico" />
-    <Content Include="Content\images\Furniture.jfif" />
-    <Content Include="Content\images\IMS.png" />
-    <Content Include="Content\images\iphone-13.png" />
-    <Content Include="Content\images\keyboard.jfif" />
-    <Content Include="Content\images\Laptop.jpg" />
-    <Content Include="Content\images\logo-wht.png" />
-    <Content Include="Content\images\logo.png" />
-    <Content Include="Content\images\mouse pad.jpg" />
-    <Content Include="Content\images\Mouse.jfif" />
-    <Content Include="Content\images\oims-black.png" />
-    <Content Include="Content\images\oims-logo.png" />
-    <Content Include="Content\images\oims-white.png" />
-    <Content Include="Content\images\Setting.png" />
-    <Content Include="Content\images\table-img.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
@@ -398,7 +379,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IMS.DataAccess\IMS.DataAccess.csproj">

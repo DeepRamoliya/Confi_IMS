@@ -29,7 +29,7 @@
             <div class="login-from">
                 <div class="login-logo mb-4 text-center">
                     <a href="">
-                        <img src="~/Content/images/IMS.png" width="125px" />
+                        <img src="~/Content/images/IMS.png" width="125" />
                     </a>
 
                 </div>
@@ -51,7 +51,7 @@
                     <div class="form-group">
                         <div class="col-md-10">
                             @Html.CheckBoxFor(model => model.RememberMe)
-                            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-4" , @style = "font-size:15px;" })
                             @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
                         </div>
                     </div>

@@ -14,6 +14,10 @@ namespace IMS.DataAccess
         {
 
         }
+        public webpages_Roles GetRolesById(int id)
+        {
+            return _db.webpages_Roles.Find(id);
+        }
         public webpages_Roles GetRolesById()
         {
             var userId = (from user in _db.User

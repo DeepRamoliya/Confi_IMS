@@ -45,9 +45,5 @@ namespace IMS.Service
            
         }
 
-        /*public ProductModel DeleteProductById(int id)
-        {
-            return productProvider.DeleteProductById(id);
-        }*/
     }
 }

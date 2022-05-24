@@ -13,5 +13,6 @@ namespace Confi_IMS.Controllers
         {
             return View();
         }
+
     }
 }

@@ -22,6 +22,11 @@ namespace IMS.Service
             var roles = _roleProvider.GetAllRoles();
             return roles;
         }
+        public webpages_Roles GetRolesById(int id)
+        {
+
+            return _roleProvider.GetRolesById(id);
+        }
 
         public RolesModel GetRolesById()
         {

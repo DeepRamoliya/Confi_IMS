@@ -41,6 +41,8 @@ namespace Confi_IMS.Controllers
             }
             
             List<FormRoleMappingModel> Formrolemapping = FormRoleMapping_Read(model.RoleId);
+            var roleName = _roleService.GetRolesById(model.RoleId);
+            ViewBag.Role = roleName.RoleCode;
             return View(Formrolemapping);
         }
         public JsonResult UpdatePermission(IEnumerable<FormRoleMappingModel> rolerights)

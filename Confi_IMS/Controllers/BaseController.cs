@@ -8,8 +8,9 @@ using System.Web.Mvc;
 
 namespace Confi_IMS.Controllers
 {
+
     [Authorize]
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
         private readonly FormRoleMappingService _formService;
         public BaseController()

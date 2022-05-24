@@ -9,7 +9,6 @@ using System.Web.Helpers;
 using IMS.DataAccess;
 using static IMS.Model.AccountModel;
 using IMS.Model;
-using System.Threading.Tasks;
 using IMS.DataAccess.Database;
 
 namespace Confi_IMS.Controllers
@@ -50,15 +49,9 @@ namespace Confi_IMS.Controllers
                     ViewBag.error = "Email already exists";
                     return View();
                 }
-
-
             }
             return View();
-
-
         }
-
-
 
         [AllowAnonymous]
         public ActionResult Login()
@@ -71,7 +64,7 @@ namespace Confi_IMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel login, string ReturnUrl = "")
         {
-            string message = "";
+            string message = " login successfull ";
             if (ModelState.IsValid)
             {
                 using (Confi_IMSEntities dc = new Confi_IMSEntities())
@@ -127,7 +120,6 @@ namespace Confi_IMS.Controllers
        
         public ActionResult LogOff()
         {
-            //  WebSecurity.Logout();
             Session.Abandon();
             FormsAuthentication.SignOut();
             TempData["Message"] = "You Successfully Logout!!";
@@ -169,8 +161,7 @@ namespace Confi_IMS.Controllers
                 body = "Hi,<br/>  <br/>We got request for reset your account password. Please click on the below link to reset your password" +
                     "<br/><br/><a href=" + link + ">Reset Password link</a>";
             }
-
-
+             
             var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
@@ -199,7 +190,7 @@ namespace Confi_IMS.Controllers
         public ActionResult ForgotPassword(string EmailId)
         {
 
-            string message = "";
+            /*string message = "";*/
             bool status = false;
 
             using (Confi_IMSEntities dc = new Confi_IMSEntities())
@@ -253,7 +244,7 @@ namespace Confi_IMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(ResetPasswordModel model)
         {
-            var message = "";
+           /* var message = "";*/
             if (ModelState.IsValid)
             {
                 using (Confi_IMSEntities dc = new Confi_IMSEntities())
@@ -292,7 +283,7 @@ namespace Confi_IMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {
-            var message = "";
+           /* var message = "";*/
             if (ModelState.IsValid)
             {
                 using (Confi_IMSEntities dc = new Confi_IMSEntities())

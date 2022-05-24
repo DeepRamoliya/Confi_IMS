@@ -21,6 +21,7 @@ namespace IMS.DataAccess.Database
         [Required]
         public string EmailId { get; set; }
         [Display(Name = "Mobile No")]
+        [Phone]
         [Required]
         public string MobileNo { get; set; }
         public bool IsActive { get; set; }
@@ -37,6 +38,7 @@ namespace IMS.DataAccess.Database
         [Required]
         public string Password { get; set; }
         [Required]
+        [Compare("Password" , ErrorMessage ="Password and confirm Password are not same ")]
         public string ConfirmPassword { get; set; }
         public bool IsEmailVerified { get; set; }
         public Guid? ActivationCode { get; set; }

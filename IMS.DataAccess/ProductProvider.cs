@@ -14,12 +14,6 @@ namespace IMS.DataAccess
         {
 
         }
-
-        /*public ProductProvider GetProductById(int Id)
-        {
-            return _db.Products.Find(Id);
-        }*/
-
         public List<Product> GetAllProduct()
         {
             var product = _db.Products.ToList();
@@ -57,12 +51,5 @@ namespace IMS.DataAccess
             
         }
 
-       /* public ProductModel DeleteProductById(int id)
-        {
-            var p = _db.Products.Where(x => x.id == id).SingleOrDefault();
-            _db.Products.Remove(p);
-            _db.SaveChanges();
-            return RedirectToAction("DisplayProduct");
-        }*/
     }
 }

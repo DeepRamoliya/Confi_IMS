@@ -28,13 +28,6 @@ namespace IMS.Service
             return purchaseProvider.PurchaseProduct(objProduct);
         }
 
-       /* public List<System.Web.UI.WebControls.DropDownList> BindPurchaseProduct()
-        {
-            return purchaseProvider.BindPurchaseProduct();
-        }*/
-
-        
-
         public Purchase GetPurchaseById(int id)
         {
             var data = purchaseProvider.GetPurchaseById(id);

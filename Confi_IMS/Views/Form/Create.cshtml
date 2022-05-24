@@ -12,7 +12,7 @@
             string formCode = AuthorizeFormAccess.FormAccessCode.FORM_MASTER.ToString();
             if (Model.Id > 0)
             {
-                ViewBag.Title = "Edit Form";
+                ViewBag.Title = " Edit Form";
             }
             else
             {
@@ -47,7 +47,7 @@
                                 <div class="col-md-4">
                                     <div class="form_input_box">
                                         <div class="form-group">
-                                            <label>Name <sup class="span_req"><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                            <label class="required">Name </label>
                                             <div class="input_box">
                                                 @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="form_input_box">
                                         <div class="form-group">
-                                            <label>Form Access Code <sup class="span_req"><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                            <label class="required">Form Access Code</label>
                                             <div class="input_box">
                                                 @if (Model.Id > 0)
                                                 {
@@ -86,14 +86,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @*<div class="form_input_box">
-                                            <div class="form-group">
-                                                <label for="">Parent Form</label>
-                                                <div class="input_box">
-                                                    @Html.DropDownListFor(model => model.ParentFormId, Model._ParentFormList, new { @class = "form-control", id = "Form" })
-                                                </div>
-                                            </div>
-                                        </div>*@
+                                    
                                     <div class="form-group">
                                         <label class="form-check-label" for="">Is Display Menu</label>
                                         <div class="form-check form-switch">

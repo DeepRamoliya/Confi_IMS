@@ -8,9 +8,15 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <style>
         body {
@@ -46,41 +52,53 @@
             }
 
         .active {
-            background-color: #51bdae;
+            background-color: #51bdae !important;
             border-radius: 5px;
         }
+
+        i {
+            padding-left: 35px;
+        }
     </style>
-    <script>
-        $(document).ready(function () {
-            var menuLi = $("#hdnMenuCode").val();
-            $('#' + menuLi + '').addClass('active')
-            //$('.navbar-nav').find('[href="' + window.location.pathname + '"]').addClass('active')
-        });
-    </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 sticky-top">
         <div class="container">
             <div class="logo">
                 <a href="@Url.Action( "Index","Home")">
-                    <img src="~/Content/images/IMS.png" />
+                    <img src="~/Content/images/IMS.png" class="img-fluid" />
                 </a>
+            </div>
+            <div class="navbar nav-content">
+                @if (User.Identity.IsAuthenticated)
+                {
+                @Html.ActionLink("Home", "Index", "Home", null, new { @Style = "color:white;text-decoration:none; font-size:20px;", id = "HomeIndex" })
+                }
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar nav-content collapse navbar-collapse justify-content-end " id="navbarNavDropdown" >
+            <div class="navbar nav-content collapse navbar-collapse justify-content-end " id="navbarNavDropdown">
                 @if (User.Identity.IsAuthenticated)
                 {
 
-                    @Html.ActionLink("Products", "DisplayProduct", "Product", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Product" })
-                    @Html.ActionLink("Purchase Product", "DisplayPurchase", "Purchase", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Purchase" })
-                    @Html.ActionLink("Sale Product", "DisplaySale", "Sale", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Sale" })
-
-                    @Html.ActionLink("Role Master", "Index", "Roles", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Roles" })
-                    @Html.ActionLink("Form Master", "Index", "Form", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Form" })
-                    @Html.ActionLink("User Master", "DisplayUserRoleMapping", "UserMst", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "UserMst" })
-
+                    @Html.ActionLink("Products", "DisplayProduct", "Product", null, new { @Style = "color:white;text-decoration:none; font-size:20px; ", id = "Product" })
+                    @Html.ActionLink("Purchase Product", "DisplayPurchase", "Purchase", null, new { @Style = "color:white;text-decoration:none; font-size:20px; ", id = "Purchase" })
+                    @Html.ActionLink("Sale Product", "DisplaySale", "Sale", null, new { @Style = "color:white;text-decoration:none; font-size:20px; ", id = "Sale" })
+                    <div class="dropdown">
+                        <a class="nav-link text-white">Master</a>
+                        <ul class="dropdown-menu table-hover text-small shadow " style="background-color: teal !important">
+                            <li>
+                                @Html.ActionLink("Role Master", "Index", "Roles", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Roles", @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Form Master", "Index", "Form", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Form", @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("User Master", "DisplayUserRoleMapping", "UserMst", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "UserMst", @class = "dropdown-item" })
+                            </li>
+                        </ul>
+                    </div>
                     @Html.ActionLink("Logout", "LogOff", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
                 }
                 else
@@ -95,27 +113,44 @@
     <div class="container body-content ">
         @RenderBody()
     </div>
-    <hr />
-    <footer class="container">
-        <p>&copy; @DateTime.Now.Year - All Right Received</p>
+    <footer class="container-fluid p-3 mt-4 footer" style="background-color: teal !important; color:white; ">
+        <div class="container" >
+                <div class="row">
+                    <div class="col-3">&copy; @DateTime.Now.Year - All Right Received</div>
+                        <div class="col-9 text-right">
+                            <a href="https://www.facebook.com/campaign/landing.php?campaign_id=14884913640&extra_1=s%7Cc%7C550525804932%7Ce%7Cfacebook%7C&placement=&creative=550525804932&keyword=facebook&partner_id=googlesem&extra_2=campaignid%3D14884913640%26adgroupid%3D128696220912%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-1001394929%26loc_physical_ms%3D9061769%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gclid=EAIaIQobChMIwZ-rnrD39wIVDTGRCh12hAC5EAAYASAAEgLCTvD_BwE" class="text-white"><i class="fa fa-facebook fa-lg"></i></a>
+                            <a href="https://www.instagram.com/instagram" class="text-white"><i class="fa fa-instagram fa-lg"></i></a>
+                            <a href="https://www.youtube.com/" class="text-white"><i class="fa fa-youtube fa-lg"></i></a>
+                            <a href="https://twitter.com/" class="text-white"><i class="fa fa-twitter fa-lg"></i></a>
+                        </div>    
+                </div>
+            </div>
+        
     </footer>
+    <script>
+        $(document).ready(function () {
+            var menuLi = $("#hdnMenuCode").val();
+            $('#' + menuLi + '').addClass('active');
+
+            $('.dropdown').hover(
+                function () {
+                    $(this).find('ul').css({
+                        "display": "block",
+                        "z-index": 1 ,
+                        "position":"fixed",
+                        "margin-top": 0
+                    });
+                },
+                function () {
+                    $(this).find('ul').css({
+                        "display": "none",
+                        "margin-top": 0
+                    });
+                }
+            );
+        });
+    </script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

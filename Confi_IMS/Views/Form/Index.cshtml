@@ -3,7 +3,9 @@
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+   
+</style>
 
     <div class="row">
         <div class="col-4">
@@ -40,10 +42,11 @@
                     <th width="150" scope="col">Action</th>
                 </tr>
             </thead>
-            @foreach (var item in Model)
-            {
-                <tbody>
-                    <tr @*class="align-middle"*@>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr >
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
@@ -53,9 +56,6 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.NavigateURL)
                         </td>
-                        @* <td>
-                    @Html.DisplayFor(modelItem => item.ParentFormId)
-                </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.DisplayOrder)
                         </td>
@@ -77,8 +77,9 @@
                             </div>
                         </td>
                     </tr>
-                </tbody>
-            }
-        </table>
+
+                }
+            </tbody>
+            </table>
     </div>
 <input type="hidden" id="hdnMenuCode" value="Form" />
