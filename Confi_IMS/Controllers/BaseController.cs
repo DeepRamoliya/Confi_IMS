@@ -10,7 +10,7 @@ namespace Confi_IMS.Controllers
 {
 
     [Authorize]
-    public abstract class BaseController : Controller
+    public class BaseController : Controller
     {
         private readonly FormRoleMappingService _formService;
         public BaseController()
@@ -59,5 +59,5 @@ namespace Confi_IMS.Controllers
             return false;
         }
 
-      }
+    }
 }

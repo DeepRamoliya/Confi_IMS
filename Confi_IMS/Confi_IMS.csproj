@@ -358,7 +358,6 @@
     <Content Include="Views\Sale\DeleteSale.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
-    <Content Include="Views\Base\AccessDenied.cshtml" />
     <Content Include="Views\FormRoleMapping\ViewPermission.cshtml" />
     <Content Include="Views\Form\Index.cshtml" />
     <Content Include="Views\Form\Create.cshtml" />
@@ -368,6 +367,7 @@
     <Content Include="Views\UserMst\DeleteUser.cshtml" />
     <Content Include="Views\Roles\CreateRole.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Base\AccessDenied.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
