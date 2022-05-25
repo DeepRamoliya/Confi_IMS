@@ -28,10 +28,10 @@ namespace Confi_IMS.Controllers
         {
 
             string role = _roleService.GetRolesById().Name;
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsEdit))
+           /* if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsEdit))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }
+            }*/
 
             FormRoleMappingModel model = new FormRoleMappingModel();
             if (Id > 0)

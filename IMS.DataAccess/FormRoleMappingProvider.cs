@@ -185,5 +185,49 @@ namespace IMS.DataAccess
             }
             return _roleRights;
         }
+        public List<MenuVW> GetMenu(int userID)
+        {
+            var _fullmenuVW = new List<MenuVW>();
+            var _menuVW = new List<MenuVW>();
+
+            SqlParameter param = new SqlParameter("@userID", userID);
+
+            _fullmenuVW = _db.Database.SqlQuery<MenuVW>("getMenu_sp @userID", param).ToList();
+
+            var mainMenu = (from _m in _fullmenuVW
+                            where (_m.ParentFormId == null || _m.ParentFormId == 0)
+                            select _m).ToList();
+
+            foreach (var _menu in mainMenu)
+            {
+                var _submenu = (from _mm in _fullmenuVW
+                                where _mm.ParentFormId == _menu.Id
+                                select _mm).ToList();
+
+                if (_submenu.Count > 0)
+                {
+                    _menu.SubMenu = BindNLevelMenu(_submenu, _fullmenuVW);
+                }
+                _menuVW.Add(_menu);
+            }
+
+            return _menuVW;
+        }
+        public List<MenuVW> BindNLevelMenu(List<MenuVW> _subMenu, List<MenuVW> _fullMenu)
+        {
+            var _sMenu = new List<MenuVW>();
+            foreach (var _tm in _subMenu)
+            {
+                var thirdmenu = (from _fm in _fullMenu
+                                 where _fm.ParentFormId == _tm.Id
+                                 select _fm).ToList();
+                if (thirdmenu.Count > 0)
+                {
+                    _tm.SubMenu = BindNLevelMenu(thirdmenu, _fullMenu);
+                }
+                _sMenu.Add(_tm);
+            }
+            return _sMenu;
+        }
     }
 }

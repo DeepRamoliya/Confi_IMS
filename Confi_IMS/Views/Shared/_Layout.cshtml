@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@using System.Web.Mvc
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,6 +60,92 @@
         i {
             padding-left: 35px;
         }
+
+
+
+        .head_menu_list {
+            float: left;
+        }
+
+            .head_menu_list > ul {
+                margin: 0;
+                padding: 0 0px;
+            }
+
+                .head_menu_list > ul > li {
+                    display: inline-block;
+                    margin: 0;
+                    position: relative;
+                }
+
+                    .head_menu_list > ul > li.head_menu_dropdown > .head_menu_dropdown_content {
+                        position: absolute;
+                        display: none;
+                    }
+
+                    .head_menu_list > ul > li.head_menu_dropdown:hover > .head_menu_dropdown_content {
+                        display: block;
+                    }
+
+                        .head_menu_list > ul > li.head_menu_dropdown:hover > .head_menu_dropdown_content > ul > li {
+                            position: relative;
+                        }
+
+                            .head_menu_list > ul > li.head_menu_dropdown:hover > .head_menu_dropdown_content > ul > li :hover .sub_dropdown_menu_content {
+                                display: block;
+                            }
+
+                                .head_menu_list > ul > li.head_menu_dropdown:hover > .head_menu_dropdown_content > ul > li :hover .sub_dropdown_menu_content:before {
+                                    position: absolute;
+                                    height: 100%;
+                                    left: -18px;
+                                    width: 20px;
+                                    top: 0;
+                                    content: "";
+                                    background: #000;
+                                }
+
+                    .head_menu_list > ul > li > a {
+                        display: block;
+                        color: White;
+                        text-decoration: none;
+                    }
+
+                        .head_menu_list > ul > li > a > i {
+                            display: inline-block;
+                            vertical-align: middle;
+                            color: white;
+                        }
+
+                    .head_menu_list > ul > li.head_menu_dropdown > .head_menu_dropdown_content:before {
+                        margin: 0;
+                        padding: 0;
+                        content: "";
+                        position: absolute;
+                        height: 25px;
+                        top: -25px;
+                        left: 0;
+                        width: 100%;
+                    }
+
+                    .head_menu_list > ul > li > a > i, .head_menu_list > ul > li > a {
+                        line-height: 30px;
+                        vertical-align: top;
+                    }
+
+            .a_link i, .head_menu_list ul li a i {
+                font-size: 20px;
+                padding-right: 6px;
+            }
+
+            @*.head_menu_list > ul > li:hover > a > i,
+            .head_menu_list > ul > li:hover > a,
+            .head_menu_list > ul > li.active > a > i,
+            .head_menu_list > ul > li.active > a {
+                color: #1aa1f5;
+            }*@
+
+
     </style>
 </head>
 <body>
@@ -79,26 +166,56 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar nav-content collapse navbar-collapse justify-content-end " id="navbarNavDropdown">
+               
                 @if (User.Identity.IsAuthenticated)
                 {
 
-                    @Html.ActionLink("Product", "DisplayProduct", "Product", null, new { @Style = "color:white;text-decoration:none; font-size:20px; ", id = "Product" })
-                    @Html.ActionLink("Purchase Product", "DisplayPurchase", "Purchase", null, new { @Style = "color:white;text-decoration:none; font-size:20px; ", id = "Purchase" })
-                    @Html.ActionLink("Sale Product", "DisplaySale", "Sale", null, new { @Style = "color:white;text-decoration:none; font-size:20px; ", id = "Sale" })
-                    <div class="dropdown">
-                        <a class="nav-link text-white">Master</a>
-                        <ul class="dropdown-menu table-hover text-small shadow " style="background-color: teal !important">
-                            <li>
-                                @Html.ActionLink("Role Master", "Index", "Roles", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Roles", @class = "dropdown-item" })
-                            </li>
-                            <li>
-                                @Html.ActionLink("Form Master", "Index", "Form", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "Form", @class = "dropdown-item" })
-                            </li>
-                            <li>
-                                @Html.ActionLink("User Master", "DisplayUserRoleMapping", "UserMst", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;", id = "UserMst", @class = "dropdown-item" })
-                            </li>
-                        </ul>
+                    <div class="header_right_col clearfix">
+                        @{
+                            if (Session["Menu"] != null)
+                            {
+                                List<IMS.Model.MenuVW> _menu = (List<IMS.Model.MenuVW>)Session["Menu"];
+                                <div class="head_menu_list">
+                                    <ul>
+                                        @foreach (var _main in _menu)
+                                        {
+                                            <li class="head_menu_dropdown" id="@_main.FormAccessCode" data-facode="@_main.FormAccessCode">
+                                                <a href="@Url.Content(_main.NavigateURL)">
+                                                    <span class="menu_text">@_main.Name</span>
+                                                </a>
+                                                @if (_main.SubMenu != null)
+                                                {
+                                                    <div class="dropdown-menu head_menu_dropdown_content">
+                                                        <ul>
+                                                            @foreach (var _sub in _main.SubMenu)
+                                                            {
+                                                                <li class="head_menu_dropdown" data-facode="@_sub.FormAccessCode">
+                                                                    <a href="@Url.Content(_sub.NavigateURL)">
+                                                                        <span class="menu_text">@_sub.Name</span>
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                }
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                            else
+                            {
+                                Response.Redirect("~/Account/Login");
+                            }
+
+                        }
+                        @*<div class="head_right_col">
+                            <div class="toprightbar">
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </div>*@
                     </div>
+
                     @Html.ActionLink("Logout", "LogOff", "Account", null, new { @Style = "color:white;text-decoration:none; font-size:20px; padding-right:20px;" })
                 }
                 else

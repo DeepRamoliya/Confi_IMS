@@ -19,10 +19,10 @@ namespace Confi_IMS.Controllers
         }
         public ActionResult Index(int? page)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.FORM_MASTER.ToString(), AccessPermission.IsView))
+           /* if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.FORM_MASTER.ToString(), AccessPermission.IsView))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }
+            }*/
             List<FormModel> FormsList = formService.GetAllForms();
             return View(FormsList);
 
@@ -30,10 +30,10 @@ namespace Confi_IMS.Controllers
 
         public ActionResult Create(int? id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.FORM_MASTER.ToString(), AccessPermission.IsAdd))
+            /*if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.FORM_MASTER.ToString(), AccessPermission.IsAdd))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }
+            }*/
             string actionPermission = "";
 
             int userId = SessionHelper.UserId;

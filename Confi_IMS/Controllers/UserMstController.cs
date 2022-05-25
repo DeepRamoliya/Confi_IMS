@@ -19,19 +19,19 @@ namespace Confi_IMS.Controllers
 
         public ActionResult DisplayUserRoleMapping()
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsView))
+            /*if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsView))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }
+            }*/
             List<User> UserList = userMstService.GetAllUser();
             return View(UserList);
         }
         public ActionResult EditUserRoleMapping(int id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsEdit))
+            /*if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsEdit))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }
+            }*/
             Confi_IMSEntities _db = new Confi_IMSEntities();
             ViewBag.RoleList = userMstService.BindRole();
             User user = userMstService.GetUserById(id);
@@ -48,10 +48,10 @@ namespace Confi_IMS.Controllers
 
         public ActionResult DeleteUser(int id)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsDelete))
+           /* if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsDelete))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }
+            }*/
             Confi_IMSEntities _db = new Confi_IMSEntities();
             User user = _db.User.Where(x => x.Id == id).SingleOrDefault();
             return View(user);
@@ -59,10 +59,10 @@ namespace Confi_IMS.Controllers
         [HttpPost]
         public ActionResult DeleteUser(int id , User user)
         {
-            if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsDelete))
+            /*if (!CheckPermission(AuthorizeFormAccess.FormAccessCode.USER_MASTER.ToString(), AccessPermission.IsDelete))
             {
                 return RedirectToAction("AccessDenied", "Base");
-            }
+            }*/
             userMstService.DeleteUser(id);
             return RedirectToAction("DisplayUserRoleMapping");
         }

@@ -10,11 +10,19 @@ using IMS.DataAccess;
 using static IMS.Model.AccountModel;
 using IMS.Model;
 using IMS.DataAccess.Database;
+using IMS.Service;
+using WebMatrix.WebData;
 
 namespace Confi_IMS.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly FormRoleMappingService _formRoleService;
+
+        public AccountController()
+        {
+            _formRoleService =new FormRoleMappingService();
+        }
         public ActionResult Register()
         {
             return View();
@@ -64,6 +72,7 @@ namespace Confi_IMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel login, string ReturnUrl = "")
         {
+            
             string message = " login successfull ";
             if (ModelState.IsValid)
             {
@@ -92,6 +101,10 @@ namespace Confi_IMS.Controllers
 
                             if (returnUrl == null)
                             {
+
+                                var userId = WebSecurity.GetUserId(login.EmailId);
+                                Session["Menu"] = _formRoleService.GetMenu(userId);
+
                                 return RedirectToAction("Index", "Home");
                             }
                             else

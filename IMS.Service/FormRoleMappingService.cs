@@ -36,5 +36,10 @@ namespace IMS.Service
 
             return _formrolemappingProvider.UpdateRoleRights(rolerights, CreatedBy, UpdatedBy);
         }
+
+        public List<MenuVW> GetMenu(int userID)
+        {
+            return _formrolemappingProvider.GetMenu(userID);
+        }
     }
 }
