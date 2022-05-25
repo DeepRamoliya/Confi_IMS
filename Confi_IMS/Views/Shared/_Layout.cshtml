@@ -180,7 +180,7 @@
                                         @foreach (var _main in _menu)
                                         {
                                             <li class="head_menu_dropdown" id="@_main.FormAccessCode" data-facode="@_main.FormAccessCode">
-                                                <a href="@Url.Content(_main.NavigateURL)">
+                                                <a href="@Url.Content(_main.NavigateURL)" id="@_main.Name">
                                                     <span class="menu_text">@_main.Name</span>
                                                 </a>
                                                 @if (_main.SubMenu != null)
